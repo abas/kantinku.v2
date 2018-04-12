@@ -157,60 +157,29 @@
                                 <div class="block-content">
                                     <div class="row items-push">
                                         <div class="col-sm-6">
-                                            <!-- Images -->
-                                            <div class="row js-gallery">
-                                                <div class="col-xs-12 push-10">
-                                                    <a class="img-link" href="assets/img/various/ecom_product6.png">
-                                                        <div class="block-content block-content-full text-center bg-flat ribbon ribbon-bookmark ribbon-crystal">
-                                                                <div class="ribbon-box font-w600">
-                                                                    <b>Rp 3000</b>
-                                                                </div>
-                                                            </div>
-                                                        <img class="img-responsive" src="assets/img/various/ecom_product6.png" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="col-xs-12">
-                                                    <h3>Judul Menu</h3>
-                                                </div>
-                                                <div class="col-xs-12">
-                                                    <p>stock : 
-                                                        <b>12</b>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <!-- END Images -->
-                                        </div>
-                                        <div class="col-sm-6">
                                             <!-- Bootstrap Register -->
                                             <div class="block block-themed">
                                                 <div class="block-header bg-success">
                                                     <ul class="block-options">
                                                         <li>
-                                                            <button type="button" onclick="javascript:window.location.href='detail_menu.html'" data-toggle="block-option" data-action="refresh_toggle"
-                                                                data-action-mode="demo">
-                                                                <i class="si si-refresh"></i>
-                                                            </button>
-                                                        </li>
-                                                        <li>
                                                             <button type="button" data-toggle="block-option" data-action="content_toggle"></button>
                                                         </li>
                                                     </ul>
-                                                    <h3 class="block-title">Buat Pesanan</h3>
+                                                    <h3 class="block-title">Detail Pesanan</h3>
                                                 </div>
                                                 <div class="block-content">
-                                                    <form class="form-horizontal push-5-t" action="detail_pesanan.html" method="post" onsubmit="return false;">
+                                                    <div class="form-horizontal push-5-t" action="detail_pesanan.html" method="post">
                                                         <div class="form-group">
                                                             <div class="col-xs-6">
                                                                 <label for="jenis_pemesanan">Jenis Pemesanan</label>
-                                                                <select name="jenis_pemesanan" class="form-control">
-                                                                    <option value="">...</option>
-                                                                    <option value="">Antar</option>
-                                                                    <option value="">Ambil</option>
-                                                                </select>
+                                                                <div class="form-control">
+                                                                    Antar
+                                                                </div>
                                                             </div>
                                                             <div class="col-xs-6">
                                                                 <label for="jumlah_pesanan">Jumlah Pesanan</label>
-                                                                <input type="number" min="0" name="jumlah_pemesanan" class="form-control" placeholder="ex: 10">
+                                                                <div class="form-control">1 buah</div>
+                                                                <!-- <X type="number" min="0" name="jumlah_pemesanan" class="form-control" placeholder="ex: 10"> -->
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
@@ -218,33 +187,84 @@
 
                                                             <div class="col-xs-12">
                                                                 <label for="nama_pemesan">Nama Pemesan</label>
-                                                                <input class="form-control" type="text" id="nama_pemesan" name="nama_pemesan" placeholder="masukkan nama anda.">
+                                                                <div class="form-control">Dwi Dian</div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
 
                                                             <div class="col-xs-12">
                                                                 <label for="kontak">Kontak</label>
-                                                                <input class="form-control" type="text" id="kontak" name="kontak" placeholder="ex: 0812345678 or telegram @abas">
+                                                                <div class="form-control">telegram @dwidian</div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
 
                                                             <div class="col-xs-12">
                                                                 <label for="alamat">Alamat</label>
-                                                                <input type="text" name="alamat" id="" class="form-control" placeholder="alamat yang dituju">
+                                                                <div class="form-control">Banowati Selatan no 6</div>
                                                             </div>
                                                         </div>
-                                                        <div class="form-group text-right">
+                                                        <hr>
+                                                        <div class="form-group">
                                                             <div class="col-xs-12">
-                                                                <button class="btn btn-sm btn-success" type="submit">
-                                                                    <i class="fa fa-cart-plus  push-5-r"></i> Pesan</button>
+                                                                <label for="transfer">Pembayaran</label>
+                                                                <p>
+                                                                    silahkan transfer pembayaran ke nomor rekening berikut
+                                                                </p>
+                                                                <div class="row">
+                                                                    <div class="col-xs-6">
+                                                                        <label for="norek">No Rekening</label>
+                                                                        <div class="form-control">
+                                                                            1234-4321-1324-4231
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div class="col-xs-6">
+
+                                                                        <label for="norek">Atas Nama Penjual</label>
+                                                                        <div class="form-control">
+                                                                            Abas
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-12">
+                                                                <label for="note">Note</label>
+                                                                <div style="text-align: justify" class="alert alert-warning">
+                                                                    <b>pesanan tidak akan di layani jika anda tidak bisa dikonfirmasi dari penjual dan terlambat membayar
+
+                                                                        dalam kurun waktu 5 menit, setelah konfirmasi dari penjual.</b>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </form>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <!-- END Bootstrap Register -->
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <!-- Images -->
+                                            <div class="row js-gallery">
+                                                <div class="col-xs-12 push-10">
+                                                    <a class="img-link" href="assets/img/various/ecom_product6.png">
+                                                        <div class="block-content block-content-full text-center bg-flat ribbon ribbon-bookmark ribbon-crystal">
+                                                            <div class="ribbon-box font-w600">
+                                                                <b>Rp 3000</b>
+                                                            </div>
+                                                        </div>
+                                                        <img class="img-responsive" src="assets/img/food/pizza.jpg" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="col-xs-12">
+                                                    <h3>Mozarella Pizza</h3>
+                                                </div>
+                                                <div class="col-xs-12">
+                                                    <p>stock :
+                                                        <b>12</b>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <!-- END Images -->
                                         </div>
                                     </div>
                                 </div>
