@@ -586,7 +586,9 @@
                     <form class="form-horizontal" action="base_pages_search.html" method="post">
                         <div class="form-material form-material-primary input-group remove-margin-t remove-margin-b">
                             <input class="form-control" type="text" id="base-material-text" name="base-material-text" placeholder="Search..">
-                            <span class="input-group-addon"><i class="si si-magnifier"></i></span>
+                            <span class="input-group-addon">
+                                <i class="si si-magnifier"></i>
+                            </span>
                         </div>
                     </form>
                 </li>
@@ -661,9 +663,26 @@
                                     <!-- Step 3 -->
                                     <div class="tab-pane push-30-t push-50" id="simple-classic-step3">
                                         <div class="form-group">
+                                            <div class="col-sm-10 col-sm-offset-1">
+                                                <label for="alamat">Jenis Pesanan</label>
+                                                <p class="form-control">Antar</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
                                             <div class="col-sm-8 col-sm-offset-2">
+                                                <label for="alamat">Alamat</label>
                                                 <p class="form-control">Banowati Selatan no 6</p>
-                                                <button class="btn btn-warning" type="button">Kirim</button>
+                                                <confirm onclick="konfirmasi_pembayaran()" class="btn btn-warning" id="konfirmasi_pembayaran">Konfirmasi Pembayaran</confirm>
+                                                <script>
+                                                    function konfirmasi_pembayaran() {
+                                                        document.getElementById("konfirmasi_pembayaran").classList.remove(
+                                                            "btn-warning")
+                                                        document.getElementById("konfirmasi_pembayaran").classList.add(
+                                                            "btn-success")
+                                                        document.getElementById("konfirmasi_pembayaran").innerHTML =
+                                                            "pesanan terbayar"
+                                                    }
+                                                </script>
                                             </div>
                                         </div>
                                     </div>
@@ -763,9 +782,26 @@
                                     <!-- Step 3 -->
                                     <div class="tab-pane push-30-t push-50" id="simple-classic-step6">
                                         <div class="form-group">
-                                            <div class="col-sm-8 col-sm-offset-2">
-                                                <p class="form-control">Udinus D.1 Samping Kantin </p>
-                                                <button class="btn btn-warning" type="button">Kirim</button>
+                                            <div class="col-sm-10 col-sm-offset-1">
+                                                <label for="kirim_pesan">Jenis Pesanan</label>
+                                                <p class="form-control">Ambil</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-10 col-sm-offset-1">
+                                                <label for="kirim_pesan">Beritahu Pemesan</label>
+                                                <p class="form-control">Terimakasih, Pesanan Anda Sudah Jadi.</p>
+                                                <confirm onclick="konfirmasi_pembayaran()" class="btn btn-warning" id="konfirmasi_pesanan">Send</confirm>
+                                                <script>
+                                                    function konfirmasi_pembayaran() {
+                                                        document.getElementById("konfirmasi_pesanan").classList.remove(
+                                                            "btn-warning")
+                                                        document.getElementById("konfirmasi_pesanan").classList.add(
+                                                            "btn-success")
+                                                        document.getElementById("konfirmasi_pesanan").innerHTML =
+                                                            "pesan telah terkirim"
+                                                    }
+                                                </script>
                                             </div>
                                         </div>
                                     </div>
