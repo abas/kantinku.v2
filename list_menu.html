@@ -602,9 +602,9 @@
             <!-- Page Content -->
             <div class="content content-narrow">
                 <!-- Simple Wizards -->
-                <h2 class="content-heading">Daftar Pesanan</h2>
+                <h2 class="content-heading">List Menu</h2>
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-4" id="list_menu1">
                         <!-- Simple Classic Wizard (.js-wizard-simple class is initialized in js/pages/base_forms_wizard.js) -->
                         <!-- For more examples you can check out http://vadimg.com/twitter-bootstrap-wizard-example/ -->
                         <div class="js-wizard-simple block">
@@ -615,9 +615,6 @@
                                 </li>
                                 <li>
                                     <a href="#simple-classic-step2" data-toggle="tab">Details</a>
-                                </li>
-                                <li>
-                                    <a href="#simple-classic-step3" data-toggle="tab">Action</a>
                                 </li>
                             </ul>
                             <!-- END Step Tabs -->
@@ -643,383 +640,29 @@
                                     <div class="tab-pane push-30-t push-50" id="simple-classic-step2">
                                         <div class="form-group">
                                             <div class="col-sm-10 col-sm-offset-1">
-                                                <label for="simple-classic-details">Pemesan</label>
-                                                <p class="form-control">Ahmad Basir</p>
-                                            </div>
-                                            <div class="col-sm-10 col-sm-offset-1">
-                                                <label for="simple-classic-details">Jumlah, Harga & Total Bayar</label>
-                                                <p class="form-control">1 x Rp. 10000 :
-                                                    <b>Rp. 10000</b>
-                                                </p>
-                                            </div>
-                                            <div class="col-sm-10 col-sm-offset-1">
-                                                <label for="simple-classic-details">Kontak</label>
-                                                <p class="form-control">telegram @Abas_</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- END Step 2 -->
+                                                <div class="row">
+                                                    <div class="col-sm-6">
 
-                                    <!-- Step 3 -->
-                                    <div class="tab-pane push-30-t push-50" id="simple-classic-step3">
-                                        <div class="form-group">
-                                            <div class="col-sm-10 col-sm-offset-1">
-                                                <label for="alamat">Jenis Pesanan</label>
-                                                <p class="form-control">Antar</p>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-10 col-sm-offset-1">
-                                                <label for="alamat">Alamat</label>
-                                                <p class="form-control">Banowati Selatan no 6</p>
-                                                <confirm onclick="konfirmasi_pembayaran()" class="btn btn-warning" id="konfirmasi_pembayaran">Konfirmasi Pembayaran</confirm>
-                                                <script>
-                                                    function konfirmasi_pembayaran() {
-                                                        document.getElementById("konfirmasi_pembayaran").classList.remove(
-                                                            "btn-warning")
-                                                        document.getElementById("konfirmasi_pembayaran").classList.add(
-                                                            "btn-success")
-                                                        document.getElementById("konfirmasi_pembayaran").innerHTML =
-                                                            "pesanan terbayar"
-                                                    }
-                                                </script>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- END Step 3 -->
-                                    <!-- else step 3 -->
-                                    <!-- <div class="tab-pane push-30-t push-50" id="simple-classic-step3">
-                                        <div class="form-group">
-                                            <div class="col-sm-10 col-sm-offset-1">
-                                                <p class="form-control">beritahu pemesan, pesanan sudah bisa di ambil</p>
-                                                <button class="btn btn-warning">Kirim</button>
-                                            </div>
-                                        </div>
-                                    </div> -->
-                                    <!-- END Step 3 -->
-                                </div>
-                                <!-- END Steps Content -->
+                                                        <label for="simple-classic-details">Harga</label>
+                                                        <p class="form-control">Rp. 10000</p>
+                                                    </div>
+                                                    <div class="col-sm-6">
 
-                                <!-- Steps Navigation -->
-                                <div class="block-content block-content-mini block-content-full border-t">
-                                    <div class="row">
-                                        <div class="col-xs-6">
-                                            <button class="wizard-prev btn btn-default" type="button">
-                                                <i class="fa fa-arrow-left"></i> Previous</button>
-                                        </div>
-                                        <div class="col-xs-6 text-right">
-                                            <button class="wizard-next btn btn-default" type="button">Next
-                                                <i class="fa fa-arrow-right"></i>
-                                            </button>
-                                            <button class="wizard-finish btn btn-primary" type="submit">
-                                                <i class="fa fa-check"></i> Done</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- END Steps Navigation -->
-                            </form>
-                            <!-- END Form -->
-                        </div>
-                        <!-- END Simple Classic Wizard -->
-                    </div>
-
-                    <div class="col-lg-6">
-                        <!-- Simple Classic Wizard (.js-wizard-simple class is initialized in js/pages/base_forms_wizard.js) -->
-                        <!-- For more examples you can check out http://vadimg.com/twitter-bootstrap-wizard-example/ -->
-                        <div class="js-wizard-simple block">
-                            <!-- Step Tabs -->
-                            <ul class="nav nav-tabs nav-justified">
-                                <li class="active">
-                                    <a href="#simple-classic-step4" data-toggle="tab">Menu</a>
-                                </li>
-                                <li>
-                                    <a href="#simple-classic-step5" data-toggle="tab">Details</a>
-                                </li>
-                                <li>
-                                    <a href="#simple-classic-step6" data-toggle="tab">Action</a>
-                                </li>
-                            </ul>
-                            <!-- END Step Tabs -->
-
-                            <!-- Form -->
-                            <form class="form-horizontal" action="dashboard.html" method="">
-                                <!-- Steps Content -->
-                                <div class="block-content tab-content">
-                                    <!-- Step 1 -->
-                                    <div class="tab-pane push-30-t push-50 active" id="simple-classic-step4">
-                                        <div class="form-group">
-                                            <div class="col-sm-10 col-sm-offset-1">
-                                                <label for="">
-                                                    <h3>Pecel Lele</h3>
-                                                </label>
-                                                <img src="assets/img/food/pecel-lele.jpg" alt="" class="img-responsive" id="image_menu">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- END Step 1 -->
-
-                                    <!-- Step 2 -->
-                                    <div class="tab-pane push-30-t push-50" id="simple-classic-step5">
-                                        <div class="form-group">
-                                            <div class="col-sm-10 col-sm-offset-1">
-                                                <label for="simple-classic-details">Pemesan</label>
-                                                <p class="form-control">Hermawan Luthfi Nugroho</p>
-                                            </div>
-                                            <div class="col-sm-10 col-sm-offset-1">
-                                                <label for="simple-classic-details">Jumlah, Harga & Total Bayar</label>
-                                                <p class="form-control">1 x Rp. 7500 :
-                                                    <b>Rp. 7500</b>
-                                                </p>
-                                            </div>
-                                            <div class="col-sm-10 col-sm-offset-1">
-                                                <label for="simple-classic-details">Kontak</label>
-                                                <p class="form-control">telegram @Hermawanln</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- END Step 2 -->
-
-                                    <!-- Step 3 -->
-                                    <div class="tab-pane push-30-t push-50" id="simple-classic-step6">
-                                        <div class="form-group">
-                                            <div class="col-sm-10 col-sm-offset-1">
-                                                <label for="kirim_pesan">Jenis Pesanan</label>
-                                                <p class="form-control">Ambil</p>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-10 col-sm-offset-1">
-                                                <label for="kirim_pesan">Beritahu Pemesan</label>
-                                                <p class="form-control">Terimakasih, Pesanan Anda Sudah Jadi.</p>
-                                                <confirm onclick="konfirmasi_pesanan()" class="btn btn-warning" id="konfirmasi_pesanan">Send</confirm>
-                                                <script>
-                                                    function konfirmasi_pesanan() {
-                                                        document.getElementById("konfirmasi_pesanan").classList.remove(
-                                                            "btn-warning")
-                                                        document.getElementById("konfirmasi_pesanan").classList.add(
-                                                            "btn-success")
-                                                        document.getElementById("konfirmasi_pesanan").innerHTML =
-                                                            "pesan telah terkirim"
-                                                    }
-                                                </script>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- END Step 3 -->
-                                    <!-- else step 3 -->
-                                    <!-- <div class="tab-pane push-30-t push-50" id="simple-classic-step3">
-                                            <div class="form-group">
-                                                <div class="col-sm-10 col-sm-offset-1">
-                                                    <p class="form-control">beritahu pemesan, pesanan sudah bisa di ambil</p>
-                                                    <button class="btn btn-warning">Kirim</button>
-                                                </div>
-                                            </div>
-                                        </div> -->
-                                    <!-- END Step 3 -->
-                                </div>
-                                <!-- END Steps Content -->
-
-                                <!-- Steps Navigation -->
-                                <div class="block-content block-content-mini block-content-full border-t">
-                                    <div class="row">
-                                        <div class="col-xs-6">
-                                            <button class="wizard-prev btn btn-default" type="button">
-                                                <i class="fa fa-arrow-left"></i> Previous</button>
-                                        </div>
-                                        <div class="col-xs-6 text-right">
-                                            <button class="wizard-next btn btn-default" type="button">Next
-                                                <i class="fa fa-arrow-right"></i>
-                                            </button>
-                                            <button class="wizard-finish btn btn-primary" type="submit">
-                                                <i class="fa fa-check"></i> Done</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- END Steps Navigation -->
-                            </form>
-                            <!-- END Form -->
-                        </div>
-                        <!-- END Simple Classic Wizard -->
-                    </div>
-
-                    <div class="col-lg-6">
-                        <!-- Simple Classic Wizard (.js-wizard-simple class is initialized in js/pages/base_forms_wizard.js) -->
-                        <!-- For more examples you can check out http://vadimg.com/twitter-bootstrap-wizard-example/ -->
-                        <div class="js-wizard-simple block">
-                            <!-- Step Tabs -->
-                            <ul class="nav nav-tabs nav-justified">
-                                <li class="active">
-                                    <a href="#simple-classic-step7" data-toggle="tab">Menu</a>
-                                </li>
-                                <li>
-                                    <a href="#simple-classic-step8" data-toggle="tab">Details</a>
-                                </li>
-                                <li>
-                                    <a href="#simple-classic-step9" data-toggle="tab">Action</a>
-                                </li>
-                            </ul>
-                            <!-- END Step Tabs -->
-
-                            <!-- Form -->
-                            <form class="form-horizontal" action="dashboard.html" method="">
-                                <!-- Steps Content -->
-                                <div class="block-content tab-content">
-                                    <!-- Step 1 -->
-                                    <div class="tab-pane push-30-t push-50 active" id="simple-classic-step7">
-                                        <div class="form-group">
-                                            <div class="col-sm-10 col-sm-offset-1">
-                                                <label for="">
-                                                    <h3>Batte Batte Chocolate</h3>
-                                                </label>
-                                                <img src="assets/img/food/coklat.jpg" alt="" class="img-responsive" id="image_menu">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- END Step 1 -->
-
-                                    <!-- Step 2 -->
-                                    <div class="tab-pane push-30-t push-50" id="simple-classic-step8">
-                                        <div class="form-group">
-                                            <div class="col-sm-10 col-sm-offset-1">
-                                                <label for="simple-classic-details">Pemesan</label>
-                                                <p class="form-control">Hafidz</p>
-                                            </div>
-                                            <div class="col-sm-10 col-sm-offset-1">
-                                                <label for="simple-classic-details">Jumlah, Harga & Total Bayar</label>
-                                                <p class="form-control">2 x Rp. 12500 :
-                                                    <b>Rp. 25000</b>
-                                                </p>
-                                            </div>
-                                            <div class="col-sm-10 col-sm-offset-1">
-                                                <label for="simple-classic-details">Kontak</label>
-                                                <p class="form-control">telegram @hafdiz</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- END Step 2 -->
-
-                                    <!-- Step 3 -->
-                                    <div class="tab-pane push-30-t push-50" id="simple-classic-step9">
-                                        <div class="form-group">
-                                            <div class="col-sm-10 col-sm-offset-1">
-                                                <p class="form-control">Bima Timur no 6</p>
-                                                <button class="btn btn-warning" type="button">Kirim</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- END Step 3 -->
-                                    <!-- else step 3 -->
-                                    <!-- <div class="tab-pane push-30-t push-50" id="simple-classic-step3">
-                                                <div class="form-group">
-                                                    <div class="col-sm-10 col-sm-offset-1">
-                                                        <p class="form-control">beritahu pemesan, pesanan sudah bisa di ambil</p>
-                                                        <button class="btn btn-warning">Kirim</button>
+                                                        <label for="simple-classic-details">Stok Tersedia</label>
+                                                        <p class="form-control">
+                                                            <b>25</b>
+                                                        </p>
                                                     </div>
                                                 </div>
-                                            </div> -->
-                                    <!-- END Step 3 -->
-                                </div>
-                                <!-- END Steps Content -->
-
-                                <!-- Steps Navigation -->
-                                <div class="block-content block-content-mini block-content-full border-t">
-                                    <div class="row">
-                                        <div class="col-xs-6">
-                                            <button class="wizard-prev btn btn-default" type="button">
-                                                <i class="fa fa-arrow-left"></i> Previous</button>
-                                        </div>
-                                        <div class="col-xs-6 text-right">
-                                            <button class="wizard-next btn btn-default" type="button">Next
-                                                <i class="fa fa-arrow-right"></i>
-                                            </button>
-                                            <button class="wizard-finish btn btn-primary" type="submit">
-                                                <i class="fa fa-check"></i> Done</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- END Steps Navigation -->
-                            </form>
-                            <!-- END Form -->
-                        </div>
-                        <!-- END Simple Classic Wizard -->
-                    </div>
-
-                    <div class="col-lg-6">
-                        <!-- Simple Classic Wizard (.js-wizard-simple class is initialized in js/pages/base_forms_wizard.js) -->
-                        <!-- For more examples you can check out http://vadimg.com/twitter-bootstrap-wizard-example/ -->
-                        <div class="js-wizard-simple block">
-                            <!-- Step Tabs -->
-                            <ul class="nav nav-tabs nav-justified">
-                                <li class="active">
-                                    <a href="#simple-classic-step10" data-toggle="tab">Menu</a>
-                                </li>
-                                <li>
-                                    <a href="#simple-classic-step11" data-toggle="tab">Details</a>
-                                </li>
-                                <li>
-                                    <a href="#simple-classic-step12" data-toggle="tab">Action</a>
-                                </li>
-                            </ul>
-                            <!-- END Step Tabs -->
-
-                            <!-- Form -->
-                            <form class="form-horizontal" action="dashboard.html" method="">
-                                <!-- Steps Content -->
-                                <div class="block-content tab-content">
-                                    <!-- Step 1 -->
-                                    <div class="tab-pane push-30-t push-50 active" id="simple-classic-step10">
-                                        <div class="form-group">
-                                            <div class="col-sm-10 col-sm-offset-1">
-                                                <label for="">
-                                                    <h3>Pizza Delisiuso</h3>
-                                                </label>
-                                                <img src="assets/img/food/pizza.jpg" alt="" class="img-responsive" id="image_menu">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- END Step 1 -->
-
-                                    <!-- Step 2 -->
-                                    <div class="tab-pane push-30-t push-50" id="simple-classic-step11">
-                                        <div class="form-group">
-                                            <div class="col-sm-10 col-sm-offset-1">
-                                                <label for="simple-classic-details">Pemesan</label>
-                                                <p class="form-control">Dwi Dian Ayu</p>
                                             </div>
                                             <div class="col-sm-10 col-sm-offset-1">
-                                                <label for="simple-classic-details">Jumlah, Harga & Total Bayar</label>
-                                                <p class="form-control">3 x Rp. 10000 :
-                                                    <b>Rp. 30000</b>
-                                                </p>
-                                            </div>
-                                            <div class="col-sm-10 col-sm-offset-1">
-                                                <label for="simple-classic-details">Kontak</label>
-                                                <p class="form-control">telegram @ayuk</p>
+                                                <label for="simple-classic-details">Jenis Menu</label>
+                                                <p class="form-control">Makanan</p>
                                             </div>
                                         </div>
                                     </div>
                                     <!-- END Step 2 -->
 
-                                    <!-- Step 3 -->
-                                    <div class="tab-pane push-30-t push-50" id="simple-classic-step12">
-                                        <div class="form-group">
-                                            <div class="col-sm-10 col-sm-offset-1">
-                                                <p class="form-control">Arjuna barat no 6</p>
-                                                <button class="btn btn-warning" type="button">Kirim</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- END Step 3 -->
-                                    <!-- else step 3 -->
-                                    <!-- <div class="tab-pane push-30-t push-50" id="simple-classic-step3">
-                                                    <div class="form-group">
-                                                        <div class="col-sm-10 col-sm-offset-1">
-                                                            <p class="form-control">beritahu pemesan, pesanan sudah bisa di ambil</p>
-                                                            <button class="btn btn-warning">Kirim</button>
-                                                        </div>
-                                                    </div>
-                                                </div> -->
-                                    <!-- END Step 3 -->
                                 </div>
                                 <!-- END Steps Content -->
 
@@ -1034,19 +677,27 @@
                                             <button class="wizard-next btn btn-default" type="button">Next
                                                 <i class="fa fa-arrow-right"></i>
                                             </button>
-                                            <button class="wizard-finish btn btn-primary" type="submit">
-                                                <i class="fa fa-check"></i> Done</button>
+                                            <button class="wizard-finish btn btn-danger" type="button" onclick="list_menu1()">
+                                                <i class="fa fa-exclamation-triangle"></i> Sold Out</button>
+                                            <script>
+                                                function list_menu1() {
+                                                    document.getElementById("list_menu1").style.display = "none"
+                                                }
+                                            </script>
+                                            <button class="wizard-finish btn btn-success" type="button" onclick="javascript:window.location.href='tambah_menu.html'">
+                                                <i class="fa fa-exclamation-triangle"></i> Update</button>
+
                                         </div>
                                     </div>
-                                </div>
-                                <!-- END Steps Navigation -->
+                                    <!-- END Steps Navigation -->
                             </form>
                             <!-- END Form -->
+                            </div>
+                            <!-- END Simple Classic Wizard -->
                         </div>
-                        <!-- END Simple Classic Wizard -->
+
                     </div>
-                </div>
-                <!-- END Page Content -->
+                    <!-- END Page Content -->
         </main>
         <!-- END Main Container -->
 
