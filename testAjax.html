@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body id="app">
+    <form>
+        nama :
+        <input type="text" name="nama" id="nama">
+        <br> email:
+        <input type="email" name="email" id="email">
+        <br>
+        <button type="button" id="submit-data">kirim</button>
+    </form>
+    <script>
+        $(document).ready(function () {
+            $("#submit-data").click(function () {
+                var nama = $("#nama").val()
+                var email = $("#email").val()
+                var url = "https://jsonplaceholder.typicode.com/posts/1"
+                $("#app").load("index.html");
+                $.get(
+                    url,
+                    function () {
+                        console.log(nama);
+                        console.log(email);
+                    },
+
+                )
+            })
+        })
+    </script>
+</body>
+
+</html>
