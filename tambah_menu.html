@@ -561,12 +561,12 @@
                             <!-- <li class="nav-main-heading">
                                     <span class="sidebar-mini-hide">Manage</span>
                                 </li> -->
-                            <li>
+                            <!-- <li>
                                 <a href="lock.html">
                                     <i class="si si-lock"></i>
                                     <span class="sidebar-mini-hide">Lock</span>
                                 </a>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                     <!-- END Side Content -->
@@ -713,7 +713,7 @@
                             <!-- END Step Tabs -->
 
                             <!-- Form -->
-                            <form class="js-validation-bootstrap form-horizontal" action="base_forms_wizard.html" method="post">
+                            <form class="js-validation-bootstrap form-horizontal" action="list_menu.html" method="post">
                                 <!-- Steps Content -->
                                 <div class="block-content tab-content">
                                     <!-- Step 1 -->
@@ -735,25 +735,23 @@
                                                 <input class="form-control" type="text" id="simple-classic-city" name="simple-classic-city" placeholder="Harga Makanan ?">
                                             </div>
                                         </div>
-                                        <div class="form-group">
+                                        <!-- <div class="form-group">
                                             <div class="col-sm-10 col-sm-offset-1">
                                                 <label for="simple-classic-details">Deskripsi Makanan</label>
                                                 <textarea class="form-control" id="simple-classic-details" name="simple-classic-details" rows="9" placeholder="Masukan deskripsi makanan"></textarea>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <div class="form-group">
                                             <div class="col-sm-10 col-sm-offset-1">
-                                                <label class="col-md-4 control-label" for="val-digits">Stok Makanan
+                                                <label for="val-digits">Stok Makanan
                                                     <span class="text-danger">*</span>
                                                 </label>
-                                                <div class="col-md-7">
-                                                    <input class="form-control" type="text" id="val-digits" name="val-digits" placeholder="3">
-                                                </div>
+                                                <input class="form-control" type="text" id="val-digits" name="val-digits" placeholder="3">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-10 col-sm-offset-1">
-                                                <label class="col-xs-12" for="foto-makanan">Foto Makanan</label>
+                                                <label class="val-digits" for="foto-makanan">Foto Makanan</label>
                                                 <div class="col-xs-12">
                                                     <input type="file" id="foto-makanan" name="foto-makanan">
                                                 </div>
@@ -773,38 +771,6 @@
                                     </div>
                                     <!-- END Step 2 -->
 
-                                    <!-- Step 3 -->
-                                    <div class="tab-pane push-30-t push-50" id="simple-classic-step3">
-                                        <div class="form-group">
-                                            <div class="col-sm-8 col-sm-offset-2">
-                                                <label for="simple-classic-city">Note</label>
-                                                <input class="form-control" type="text" id="simple-classic-city" name="simple-classic-city" placeholder="Misal, nasi">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-8 col-sm-offset-2">
-                                                <label for="simple-classic-skills">Topping</label>
-                                                <select class="form-control" id="simple-classic-skills" name="simple-classic-skills" size="1">
-                                                    <option value="">Pilih topping kesukaan anda</option>
-                                                    <option value="1">Coklat</option>
-                                                    <option value="2">Susu</option>
-                                                    <option value="3">Matcha</option>
-                                                    <option value="4">Escho</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-8 col-sm-offset-2">
-                                                <label class="css-input switch switch-sm switch-primary" for="simple-classic-terms">
-                                                    <input type="checkbox" id="simple-classic-terms" name="simple-classic-terms">
-                                                    <span></span> Agree with the
-                                                    <a data-toggle="modal" data-target="#modal-terms"
-                                                        href="#">terms</a>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- END Step 3 -->
                                 </div>
                                 <!-- END Steps Content -->
 
@@ -837,54 +803,57 @@
                             <!-- Step Tabs -->
                             <ul class="nav nav-tabs nav-justified">
                                 <li class="active">
-                                    <a href="#simple-classic-step4" data-toggle="tab">1. Personal</a>
+                                    <a href="#simple-classic-step1-minuman" data-toggle="tab">Minuman</a>
                                 </li>
                                 <li>
-                                    <a href="#simple-classic-step5" data-toggle="tab">2. Details</a>
+                                    <a href="#simple-classic-step2-minuman" data-toggle="tab">Details</a>
                                 </li>
                                 <li>
-                                    <a href="#simple-classic-step6" data-toggle="tab">3. Extra</a>
+                                    <a href="#simple-classic-step3" data-toggle="tab"></a>
                                 </li>
                             </ul>
                             <!-- END Step Tabs -->
 
                             <!-- Form -->
-                            <form class="js-validation-bootstrap form-horizontal" action="base_forms_wizard.html" method="post">
+                            <form class="js-validation-bootstrap form-horizontal" action="list_menu.html" method="post">
                                 <!-- Steps Content -->
                                 <div class="block-content tab-content">
                                     <!-- Step 1 -->
-                                    <div class="tab-pane push-30-t push-50 active" id="simple-classic-step4">
+                                    <div class="tab-pane push-30-t push-50 active" id="simple-classic-step1-minuman">
                                         <div class="form-group">
                                             <div class="col-sm-10 col-sm-offset-1">
-                                                <label for="simple-classic-city">Nama Makanan</label>
-                                                <input class="form-control" type="text" id="simple-classic-city" name="simple-classic-city" placeholder="Nama Makanan ?">
+                                                <label for="simple-classic-city">Jenis Pemesanan</label>
+                                                <!-- <select name="jenis_pemesanan" id="">
+                                                    <option value="">...</option>
+                                                    <option value=""></option>
+                                                </select> -->
+
+                                                <!-- <input class="form-control" type="text" id="simple-classic-city" name="simple-classic-city" placeholder="Nama Makanan ?"> -->
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-10 col-sm-offset-1">
-                                                <label for="simple-classic-city">Harga Makanan</label>
+                                                <label for="simple-classic-city">Harga Minuman</label>
                                                 <input class="form-control" type="text" id="simple-classic-city" name="simple-classic-city" placeholder="Harga Makanan ?">
                                             </div>
                                         </div>
-                                        <div class="form-group">
+                                        <!-- <div class="form-group">
                                             <div class="col-sm-10 col-sm-offset-1">
                                                 <label for="simple-classic-details">Deskripsi Makanan</label>
                                                 <textarea class="form-control" id="simple-classic-details" name="simple-classic-details" rows="9" placeholder="Masukan deskripsi makanan"></textarea>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <div class="form-group">
                                             <div class="col-sm-10 col-sm-offset-1">
-                                                <label class="col-md-4 control-label" for="val-digits">Stok Makanan
+                                                <label for="val-digits">Stok Minuman
                                                     <span class="text-danger">*</span>
                                                 </label>
-                                                <div class="col-md-7">
-                                                    <input class="form-control" type="text" id="val-digits" name="val-digits" placeholder="3">
-                                                </div>
+                                                <input class="form-control" type="text" id="val-digits" name="val-digits" placeholder="3">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-10 col-sm-offset-1">
-                                                <label class="col-xs-12" for="foto-makanan">Foto Makanan</label>
+                                                <label class="val-digits" for="foto-makanan">Foto Minuman</label>
                                                 <div class="col-xs-12">
                                                     <input type="file" id="foto-makanan" name="foto-makanan">
                                                 </div>
@@ -894,7 +863,7 @@
                                     <!-- END Step 1 -->
 
                                     <!-- Step 2 -->
-                                    <div class="tab-pane push-30-t push-50" id="simple-classic-step5">
+                                    <div class="tab-pane push-30-t push-50" id="simple-classic-step2-minuman">
                                         <div class="form-group">
                                             <div class="col-sm-8 col-sm-offset-2">
                                                 <label for="simple-classic-details">Details</label>
@@ -904,38 +873,6 @@
                                     </div>
                                     <!-- END Step 2 -->
 
-                                    <!-- Step 3 -->
-                                    <div class="tab-pane push-30-t push-50" id="simple-classic-step6">
-                                        <div class="form-group">
-                                            <div class="col-sm-8 col-sm-offset-2">
-                                                <label for="simple-classic-city">Note</label>
-                                                <input class="form-control" type="text" id="simple-classic-city" name="simple-classic-city" placeholder="Misal, nasi">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-8 col-sm-offset-2">
-                                                <label for="simple-classic-skills">Topping</label>
-                                                <select class="form-control" id="simple-classic-skills" name="simple-classic-skills" size="1">
-                                                    <option value="">Pilih topping kesukaan anda</option>
-                                                    <option value="1">Coklat</option>
-                                                    <option value="2">Susu</option>
-                                                    <option value="3">Matcha</option>
-                                                    <option value="4">Escho</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-8 col-sm-offset-2">
-                                                <label class="css-input switch switch-sm switch-primary" for="simple-classic-terms">
-                                                    <input type="checkbox" id="simple-classic-terms" name="simple-classic-terms">
-                                                    <span></span> Agree with the
-                                                    <a data-toggle="modal" data-target="#modal-terms"
-                                                        href="#">terms</a>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- END Step 3 -->
                                 </div>
                                 <!-- END Steps Content -->
 
@@ -961,7 +898,6 @@
                         </div>
                         <!-- END Simple Classic Wizard -->
                     </div>
-                </div>
                 <!-- END Simple Wizards -->
             </div>
             <!-- END Page Content -->
