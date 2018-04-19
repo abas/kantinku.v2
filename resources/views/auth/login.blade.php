@@ -1,6 +1,4 @@
 @extends('layouts.app') @section('content')
-
-<body class="bg-default">
     <!-- Login Content -->
     <div class="bg-white pulldown">
         <div class="content content-boxed overflow-hidden">

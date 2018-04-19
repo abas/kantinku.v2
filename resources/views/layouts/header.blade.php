@@ -9,8 +9,8 @@
 
     <title>KantinKU - Kantin Kampus Udinus</title>
 
-    <meta name="description" content="OneUI - Admin Dashboard Template &amp; UI Framework created by pixelcave and published on Themeforest">
-    <meta name="author" content="pixelcave">
+    <meta name="description" content="KantinKU - Kantin Kampus Udinus &amp; ribet jalan..? tinggal pesan :D">
+    <meta name="author" content="Gladiator">
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -50,3 +50,11 @@
     <!-- <link rel="stylesheet" id="css-theme" href="assets/css/themes/flat.min.css"> -->
     <!-- END Stylesheets -->
 </head>
+
+@if(Route::current()->getName() == 'login')
+    <body class="bg-default">        
+@elseif(Route::current()->getName() == 'register')
+    <body class="bg-success">
+@else
+    <body>
+@endif
