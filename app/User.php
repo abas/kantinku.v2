@@ -24,6 +24,16 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'id','password', 'remember_token',
     ];
+
+    public static function getName($id)
+    {
+        return User::find($id)->name;
+    }
+
+    public static function getEmail($id)
+    {
+        return User::find($id)->email;
+    }
 }

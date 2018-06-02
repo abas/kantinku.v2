@@ -1,365 +1,148 @@
-@extends('layouts.app') @section('content')
-
-  <!-- Page Container -->
-  <div id="page-container">
-    <!-- Header -->
-    <header id="header-navbar" class="content-mini content-mini-full">
-      <!-- Header Navigation Right -->
-      <ul class="nav-header pull-right">
-        <li>
-          <div class="btn-group">
-            <button class="btn btn-primary btn-image dropdown-toggle" data-toggle="dropdown" type="button">
-              <img src="assets/img/avatars/avatar10.jpg" alt="Avatar"> Accounts
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-right">
-              <li class="dropdown-header">Profile</li>
-              <li>
-                <a tabindex="-1" href="dashboard.html">
-                  <i class="si si-settings pull-right"></i>Dashboard
-                </a>
-              </li>
-              <li class="divider"></li>
-              <li class="dropdown-header">Actions</li>
-              <li>
-                <a tabindex="-1" href="login.html">
-                  <i class="si si-lock pull-right"></i>Login
-                </a>
-              </li>
-              <li>
-                <a tabindex="-1" href="register.html">
-                  <i class="si si-logout pull-right"></i>Log out
-                </a>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <!-- <li>
-                    <button class="btn btn-default" data-toggle="layout" data-action="side_overlay_toggle" type="button">
-                        <i class="fa fa-tasks"></i>
-                    </button>
-                </li> -->
-      </ul>
-      <!-- END Header Navigation Right -->
-
-      <!-- Header Navigation Left -->
-      <ul class="nav-header pull-left">
-
-        <li>
-          <!-- Opens the Apps modal found at the bottom of the page, before including JS code -->
-          <a href="index.html" class="btn pull-right">
+@extends('container.app') @section('_style') @endsection @section('content')
+<!-- Main Container -->
+<main id="main-container">
+  <!-- Hero Content -->
+  <div class="bg-video" data-vide-bg="assets/img/videos/hero_tech" data-vide-options="posterType: jpg, position: 50% 75%">
+    <div class="bg-primary-dark-op">
+      <section class="content content-full content-boxed">
+        <!-- Section Content -->
+        <br>
+        <br>
+        <br>
+        <div class="text-center push-30-t visibility-hidden" data-toggle="appear" data-class="animated fadeIn">
+          <a class="fa-2x text-white" href="">
             <i class="fa fa-circle-o-notch text-primary push-5-r"></i>KantinKU
           </a>
-        </li>
-        <li class="visible-xs">
-          <!-- Toggle class helper (for .js-header-search below), functionality initialized in App() -> uiToggleClass() -->
-          <button class="btn btn-default" data-toggle="class-toggle" data-target=".js-header-search" data-class="header-search-xs-visible"
-            type="button">
-            <i class="fa fa-search"></i>
-          </button>
-        </li>
-        <li class="js-header-search header-search">
-          <form class="form-horizontal" action="search_result.html" method="post">
-            <div class="form-material form-material-primary input-group remove-margin-t remove-margin-b">
-              <input class="form-control" type="text" id="base-material-text" name="base-material-text" placeholder="Search..">
-              <span class="input-group-addon">
-                <i class="si si-magnifier"></i>
-              </span>
-            </div>
-          </form>
-        </li>
-      </ul>
-      <!-- END Header Navigation Left -->
-    </header>
-    <!-- END Header -->
-    <!-- Main Container -->
-    <main id="main-container">
-      <!-- Header Navigation Right -->
-      <ul class="nav-header pull-right">
-        <li>
-          <div class="btn-group">
-            <button class="btn btn-default btn-image dropdown-toggle" data-toggle="dropdown" type="button">
-              <img src="assets/img/avatars/avatar10.jpg" alt="Avatar">
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-right">
-              <li class="dropdown-header">Profile</li>
-              <li>
-                <a tabindex="-1" href="javascript:void(0)">
-                  <i class="si si-settings pull-right"></i>Dashboard
-                </a>
-              </li>
-              <li class="divider"></li>
-              <li class="dropdown-header">Actions</li>
-              <li>
-                <a tabindex="-1" href="login.html">
-                  <i class="si si-lock pull-right"></i>Login
-                </a>
-              </li>
-              <li>
-                <a tabindex="-1" href="register.html">
-                  <i class="si si-logout pull-right"></i>Log out
-                </a>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li>
-          <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
-          <button class="btn btn-default" data-toggle="layout" data-action="side_overlay_toggle" type="button">
-            <i class="fa fa-tasks"></i>
-          </button>
-        </li>
-      </ul>
-      <!-- END Header Navigation Right -->
-      <!-- Hero Content -->
-      <div class="bg-video" data-vide-bg="assets/img/videos/hero_tech" data-vide-options="posterType: jpg, position: 50% 75%">
-        <div class="bg-primary-dark-op">
-          <section class="content content-full content-boxed">
-            <!-- Section Content -->
-            <br>
-            <br>
-            <br>
-            <div class="text-center push-30-t visibility-hidden" data-toggle="appear" data-class="animated fadeIn">
-              <a class="fa-2x text-white" href="">
-                <i class="fa fa-circle-o-notch text-primary push-5-r"></i>KantinKU
-              </a>
-            </div>
-            <div class="push-100-t push-50 text-center">
-              <h1 class="h2 font-w700 text-white push-20 visibility-hidden" data-toggle="appear" data-class="animated fadeInDown">
-                < / Kantin Kampus Udinus>
-              </h1>
-              <h2 class="h4 text-white-op visibility-hidden" data-toggle="appear" data-timeout="750" data-class="animated fadeIn">
-                <em>beli makanan dan minuman menjadi lebih mudah.</em>
-              </h2>
-              <div class="push-50-t push-20 text-center">
-                <a class="btn btn-rounded btn-noborder btn-lg btn-primary push-5 visibility-hidden" data-toggle="appear" data-class="animated fadeInRight"
-                  href="#to_makanan">Ayo Jajan!</a>
-                <a class="btn push-5 text-white visibility-hidden" data-toggle="appear" data-class="animated fadeInRight">or</a>
-                <a class="btn btn-rounded btn-noborder btn-lg btn-success push-5 visibility-hidden" data-toggle="appear" data-class="animated fadeInRight"
-                  href="register.html">Bikin Kantin</a>
-              </div>
-              <br>
-              <br>
-              <br>
-            </div>
-            <!-- END Section Content -->
-          </section>
         </div>
+        <div class="push-100-t push-50 text-center">
+          <h1 class="h2 font-w700 text-white push-20 visibility-hidden" data-toggle="appear" data-class="animated fadeInDown">
+            < / Kantin Kampus Udinus>
+          </h1>
+          <h2 class="h4 text-white-op visibility-hidden" data-toggle="appear" data-timeout="750" data-class="animated fadeIn">
+            <em>beli makanan dan minuman menjadi lebih mudah.</em>
+          </h2>
+          <div class="push-50-t push-20 text-center">
+            <a class="btn btn-rounded btn-noborder btn-lg btn-primary push-5 visibility-hidden" data-toggle="appear" data-class="animated fadeInRight"
+              href="#to_makanan">Ayo Jajan!</a>
+            <a class="btn push-5 text-white visibility-hidden" data-toggle="appear" data-class="animated fadeInRight">or</a>
+            <a class="btn btn-rounded btn-noborder btn-lg btn-success push-5 visibility-hidden" data-toggle="appear" data-class="animated fadeInRight"
+              href="{{route('dashboard')}}">Bikin Kantin</a>
+          </div>
+          <br>
+          <br>
+          <br>
+        </div>
+        <!-- END Section Content -->
+      </section>
+    </div>
+  </div>
+  <!-- END Hero Content -->
+
+  <!-- Live Previews -->
+  <div class="bg-gray-lighter">
+    <section class="content content-boxed" id="to_makanan">
+      <!-- Section Content -->
+      <h3 class="font-w400 text-black push-30-t push-20">Makanan Tersedia</h3>
+      <div class="row">
+        @if($makanans->count() > 0) @foreach($makanans as $makanan)
+        <!-- menus -->
+        <div class="col-sm-4">
+          <a class="block block-link-hover3" href="{{route('menu-detail',$makanan->id)}}">
+            <div class="block-content block-content-full text-center bg-warning ribbon ribbon-bookmark ribbon-crystal">
+              <div class="ribbon-box font-w600">
+                <b>Rp {{$makanan->harga_menu}}</b>
+              </div>
+            </div>
+            <img class="img-responsive" src="assets/img/food/aneka-gorengan.jpg" alt="">
+
+            <div class="block-content block-content-full text-left">
+              <h4 class="">{{$makanan->nama_menu}}</h4>
+              <p>
+                {{$makanan->deskripsi_menu}}
+              </p>
+            </div>
+            <div class="text-right block-content block-content-full">
+              stock :
+              <b>{{$makanan->stock_menu}}</b>
+            </div>
+          </a>
+        </div>
+        @endforeach
+        <center class="col-sm-12">
+          <div class="card">
+            <a class="btn btn-rounded text-white bg-warning" href="{{route('exp-makanans')}}">
+              <i class="fa fa-arrow-right pull-right"></i>Explore Makanan </i>
+            </a>
+          </div>
+        </center>
+        <!-- <center class="col-sm-12 text-warning">
+          <h4>{{$makanans->render()}}</h4>
+        </center> -->
+        @else
+        <div class="col-sm-12">
+          <div class="block block-link-hover2">
+            <div class="alert alert-danger">
+              <b>makanan</b> tidak tersedia untuk saat ini.
+            </div>
+          </div>
+        </div>
+        @endif
       </div>
-      <!-- END Hero Content -->
-
-      <!-- Live Previews -->
-      <div class="bg-gray-lighter">
-        <section class="content content-boxed" id="to_makanan">
-          <!-- Section Content -->
-          <h3 class="font-w400 text-black push-30-t push-20">Makanan Tersedia</h3>
-          <div class="row">
-            <!-- menus -->
-            <div class="col-sm-4">
-              <a class="block block-link-hover3" href="detail_menu_gorengan.html">
-                <div class="block-content block-content-full text-center bg-warning ribbon ribbon-bookmark ribbon-crystal">
-                  <div class="ribbon-box font-w600">
-                    <b>Rp 500</b>
-                  </div>
-                </div>
-                <img class="img-responsive" src="assets/img/food/aneka-gorengan.jpg" alt="">
-
-                <div class="block-content block-content-full text-left">
-                  <h4 class="">Aneka Gorengan</h4>
-                  <p class="">Gorengan asli dua kelinci lumer dan juicy minyaknya. Bisa buat kamu kamu yang pengen jadi ndut.</p>
-                  <!-- <h3 class="">Rp. 5000</h3> -->
-                </div>
-                <div class="text-right block-content block-content-full">
-                  stock :
-                  <b>100</b>
-                </div>
-              </a>
+      <!-- break point -->
+      <h3 class="font-w400 text-black push-50-t push-20">Minuman Tersedia</h3>
+      <div class="row">
+        @if($minumans->count() > 0) @foreach($minumans as $minuman)
+        <!-- menus -->
+        <div class="col-sm-4">
+          <a class="block block-link-hover3" href="{{route('menu-detail',$minuman->id)}}">
+            <div class="block-content block-content-full text-center bg-flat ribbon ribbon-bookmark ribbon-crystal">
+              <div class="ribbon-box font-w600">
+                <b class="priceFormat">{{$minuman->harga_menu}}</b>
+              </div>
             </div>
-            <!-- menus -->
-            <div class="col-sm-4">
-              <a class="block block-link-hover3" href="detail_menu_daging.html">
-                <div class="block-content block-content-full text-center bg-warning ribbon ribbon-bookmark ribbon-crystal">
-                  <div class="ribbon-box font-w600">
-                    <b>Rp 10000</b>
-                  </div>
-                </div>
-                <img class="img-responsive" src="assets/img/food/daging.jpg" alt="">
+            <img class="img-responsive" src="{{asset('assets/img/food/es-teh.jpg')}}" alt="">
 
-                <div class="block-content block-content-full text-left">
-                  <h4 class="">Rica-Rica Daging Sapi</h4>
-                  <p class="">Daging sapi asli segar dan lembut digoreng tanpa pengawet.</p>
-                  <!-- <h3 class="">Rp. 5000</h3> -->
-                </div>
-                <div class="text-right block-content block-content-full">
-                  stock :
-                  <b>43</b>
-                </div>
-              </a>
+            <div class="block-content block-content-full text-left">
+              <h4 class="">{{$minuman->nama_menu}}</h4>
+              <p class="">{{$minuman->deskripsi_menu}}</p>
+              <!-- <h3 class="">Rp. 5000</h3> -->
             </div>
-            <!-- menus -->
-            <div class="col-sm-4">
-              <a class="block block-link-hover3" href="detail_menu_pecel_lele.html">
-                <div class="block-content block-content-full text-center bg-warning ribbon ribbon-bookmark ribbon-crystal">
-                  <div class="ribbon-box font-w600">
-                    <b>Rp 7500</b>
-                  </div>
-                </div>
-                <img class="img-responsive" src="assets/img/food/pecel-lele.jpg" alt="">
-
-                <div class="block-content block-content-full text-left">
-                  <h4 class="">Pecel Lele</h4>
-                  <p class="">Laper? Jangan Baper! Dateng aja ke kantin kita dan nikmati pecel lele nikmat tidak bikin kembung.</p>
-                  <!-- <h3 class="">Rp. 5000</h3> -->
-                </div>
-                <div class="text-right block-content block-content-full">
-                  stock :
-                  <b>36</b>
-                </div>
-              </a>
+            <div class="text-right block-content block-content-full">
+              stock :
+              <b>{{$minuman->stock_menu}}</b>
             </div>
-            <!-- end menus -->
+          </a>
+        </div>
+        @endforeach
+        <center class="col-sm-12 text-flat">
+          <div class="card">
+            <a class="btn btn-rounded text-white bg-flat" href="{{route('exp-minumans')}}">
+              <i class="fa fa-arrow-right pull-right"></i>Explore Minuman </i>
+            </a>
+            <br>
+            <br>
           </div>
-          <div class="row">
-            <!-- menus -->
-            <div class="col-sm-4">
-              <a class="block block-link-hover3" href="detail_menu_coklat.html">
-                <div class="block-content block-content-full text-center bg-warning ribbon ribbon-bookmark ribbon-crystal">
-                  <div class="ribbon-box font-w600">
-                    <b>Rp 12500</b>
-                  </div>
-                </div>
-                <img class="img-responsive" src="assets/img/food/coklat.jpg" alt="">
-
-                <div class="block-content block-content-full text-left">
-                  <h4 class="">Batte Batte Chocolate</h4>
-                  <p class="">Coklat lumer dengan taburan micin diatasnya. Beserta irisan coklat nikmat aman diperut.</p>
-                  <!-- <h3 class="">Rp. 5000</h3> -->
-                </div>
-                <div class="text-right block-content block-content-full">
-                  stock :
-                  <b>50</b>
-                </div>
-              </a>
+        </center>
+        <!-- <center class="col-sm-12 text-flat">
+            <h4>{{$makanans->render()}}</h1>
+        </center> -->
+        @else
+        <div class="col-sm-12">
+          <div class="block block-link-hover2">
+            <div class="alert alert-danger">
+              <b>minuman</b> tidak tersedia untuk saat ini.
             </div>
-            <!-- menus -->
-            <div class="col-sm-4">
-              <a class="block block-link-hover3" href="detail_menu_nastar.html">
-                <div class="block-content block-content-full text-center bg-warning ribbon ribbon-bookmark ribbon-crystal">
-                  <div class="ribbon-box font-w600">
-                    <b>Rp 7000</b>
-                  </div>
-                </div>
-                <img class="img-responsive" src="assets/img/food/nastar.jpg" alt="">
-
-                <div class="block-content block-content-full text-left">
-                  <h4 class="">Nastar Cake</h4>
-                  <p class="">Kue kering nastar bertabur kacang. Tapi paling engga kamu ga bakal dikacangin kaya chat doi.</p>
-                  <!-- <h3 class="">Rp. 5000</h3> -->
-                </div>
-                <div class="text-right block-content block-content-full">
-                  stock :
-                  <b>43</b>
-                </div>
-              </a>
-            </div>
-            <!-- menus -->
-            <div class="col-sm-4">
-              <a class="block block-link-hover3" href="detail_menu_pizza.html">
-                <div class="block-content block-content-full text-center bg-warning ribbon ribbon-bookmark ribbon-crystal">
-                  <div class="ribbon-box font-w600">
-                    <b>Rp 10000</b>
-                  </div>
-                </div>
-                <img class="img-responsive" src="assets/img/food/pizza.jpg" alt="">
-
-                <div class="block-content block-content-full text-left">
-                  <h4 class="">Mozarella Pizza</h4>
-                  <p class="">Pizza lumer yang bikin nagih kaya chatingan sama doi.</p>
-                  <!-- <h3 class="">Rp. 5000</h3> -->
-                </div>
-                <div class="text-right block-content block-content-full">
-                  stock :
-                  <b>100</b>
-                </div>
-              </a>
-            </div>
-            <!-- end menus -->
           </div>
-          <h3 class="font-w400 text-black push-50-t push-20">Minuman Tersedia</h3>
-          <div class="row">
-            <!-- menus -->
-            <div class="col-sm-4">
-              <a class="block block-link-hover3" href="detail_menu_es_teh.html">
-                <div class="block-content block-content-full text-center bg-flat ribbon ribbon-bookmark ribbon-crystal">
-                  <div class="ribbon-box font-w600">
-                    <b>Rp 8000</b>
-                  </div>
-                </div>
-                <img class="img-responsive" src="assets/img/food/es-teh.jpg" alt="">
-
-                <div class="block-content block-content-full text-left">
-                  <h4 class="">Ice Tea</h4>
-                  <p class="">Mahal ? iya lah orang namanya Ice Tea bukan Esteh.</p>
-                  <!-- <h3 class="">Rp. 5000</h3> -->
-                </div>
-                <div class="text-right block-content block-content-full">
-                  stock :
-                  <b>115</b>
-                </div>
-              </a>
-            </div>
-            <!-- menus -->
-            <div class="col-sm-4">
-              <a class="block block-link-hover3" href="detail_menu_jus_mangga.html">
-                <div class="block-content block-content-full text-center bg-flat ribbon ribbon-bookmark ribbon-crystal">
-                  <div class="ribbon-box font-w600">
-                    <b>Rp 5500</b>
-                  </div>
-                </div>
-                <img class="img-responsive" src="assets/img/food/jus-mangga.png" alt="">
-
-                <div class="block-content block-content-full text-left">
-                  <h4 class="">Jus Mangga</h4>
-                  <p class="">Mangga langsung di petik dari pohonnya.</p>
-                  <!-- <h3 class="">Rp. 5000</h3> -->
-                </div>
-                <div class="text-right block-content block-content-full">
-                  stock :
-                  <b>50</b>
-                </div>
-              </a>
-            </div>
-            <!-- menus -->
-            <div class="col-sm-4">
-              <a class="block block-link-hover3" href="detail_menu_jus_alpukat.html">
-                <div class="block-content block-content-full text-center bg-flat ribbon ribbon-bookmark ribbon-crystal">
-                  <div class="ribbon-box font-w600">
-                    <b>Rp 6000</b>
-                  </div>
-                </div>
-                <img class="img-responsive" src="assets/img/food/jus-alpukat.jpg" alt="">
-
-                <div class="block-content block-content-full text-left">
-                  <h4 class="">Jus Alpukat</h4>
-                  <p class="">Haus kaks? coba jus alpukat segerrr.</p>
-                  <!-- <h3 class="">Rp. 5000</h3> -->
-                </div>
-                <div class="text-right block-content block-content-full">
-                  stock :
-                  <b>25</b>
-                </div>
-              </a>
-            </div>
-            <!-- end menus -->
-          </div>
-          <!-- END Section Content -->
-        </section>
+        </div>
+        @endif
       </div>
-      <!-- END Live Previews -->
+      <!-- END Section Content -->
+    </section>
+  </div>
+  <!-- END Live Previews -->
 
-      <!-- Features -->
-      <!-- <div class="bg-white">
+  <!-- Features -->
+  <!-- <div class="bg-white">
                 <section class="content content-boxed">
                     <center>
                         <h2 class="font-w400 text-black push-50-t push-20">Kantin Terdaftar</h2>
@@ -399,10 +182,10 @@
                     </div>
                 </section>
             </div> -->
-      <!-- END Features -->
+  <!-- END Features -->
 
-      <!-- Ratings -->
-      <!-- <div class="bg-image" style="background-image: url('assets/img/photos/photo36@2x.jpg');">
+  <!-- Ratings -->
+  <!-- <div class="bg-image" style="background-image: url('assets/img/photos/photo36@2x.jpg');">
                 <div class="bg-primary-dark-op">
                     <section class="content content-full content-boxed overflow-hidden">
                         <div class="row items-push-2x push-50-t">
@@ -453,9 +236,16 @@
                     </section>
                 </div>
             </div> -->
-      <!-- END Ratings -->
-    </main>
-    <!-- END Main Container -->
-
-
-  @endsection
+  <!-- END Ratings -->
+</main>
+<!-- END Main Container -->
+@endsection @section('_script')
+<!-- Page JS Code -->
+<script src="assets/js/plugins/jquery-vide/jquery.vide.min.js"></script>
+<script>
+  jQuery(function () {
+    // Init page helpers (Appear plugin)
+    App.initHelpers('appear');
+  });
+</script>
+@endsection

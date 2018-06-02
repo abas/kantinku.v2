@@ -1,84 +1,70 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use Auth,Validator;
+
+use App\Menu;
 
 class MenuController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function __construct()
     {
-        return view('index');
+        $this->middleware('auth');
+    }
+
+    public function simpan(Request $r)
+    {
+        $validator = Validator::make($r->all(), [
+            'nama_menu'         => 'required|min:3',
+            'deskripsi_menu'    => 'required|min:10',
+            'harga_menu'        => 'required|min:500',
+            'stock_menu'        => 'required|min:1',
+            'tipe_menu'         => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                            ->withErrors($validator)
+                            ->withInput();
+        }
+
+        /**
+         * storing data request
+         */
+        $menu = new Menu;
+        $menu->id_user        = Auth::User()->id;
+        $menu->nama_menu      = $r->nama_menu;
+        $menu->deskripsi_menu = $r->deskripsi_menu;
+        $menu->harga_menu     = $r->harga_menu;
+        $menu->stock_menu     = $r->stock_menu;
+        $menu->tipe_menu      = $r->tipe_menu;
+        if($menu->save()){
+            return $menu;
+        }return null;
+    }
+
+    public function update(Request $r, $id)
+    {
+        $menu = Menu::find($id);
+        
+        $menu->nama_menu        = $r->nama_menu;
+        $menu->deskripsi_menu   = $r->deskripsi_menu;
+        $menu->harga_menu       = $r->harga_menu;
+        $menu->stock_menu       = $r->stock_menu;
+        $menu->tipe_menu        = $r->tipe_menu;
+
+        if($menu->update()){
+            return $menu;
+        }return null;
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * delete the menu
+     * 
      */
-    public function create()
+    public function delete($id)
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        Menu::find($id)->delete;
     }
 }
