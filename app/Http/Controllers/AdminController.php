@@ -24,4 +24,13 @@ class AdminController extends Controller
             $pesanans,
         ];
     }
+
+    /**
+     * view tambah menu
+     */
+    public function tambahMenu()
+    {
+        return view('admin.tambah-menu');
+    }
+
 }

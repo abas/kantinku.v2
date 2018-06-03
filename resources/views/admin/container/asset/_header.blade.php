@@ -17,7 +17,7 @@
             </button>
         </li>
         <li class="js-header-search header-search pull-right">
-            <form class="form-horizontal" action="search_result.html" method="post">
+            <form class="form-horizontal" action="#" method="post">
                 <div class="form-material form-material-primary input-group remove-margin-t remove-margin-b">
                     <input class="form-control" type="text" id="base-material-text" name="base-material-text" placeholder="Search..">
                     <span class="input-group-addon">

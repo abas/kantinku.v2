@@ -30,6 +30,15 @@ Route::group(['prefix'=>'menu'],function(){
     getUrl('/pesanan{pesanans}','PesananController@pesanan','pesanan');
 });
 
-Route::group(['prefix'=>'admin/v1','middleware'=>'auth'],function(){
-    getUrl('/katinku','AdminController@index','dashboard');
+Route::group([
+    'prefix'=>'admin/v1/kantinku',
+    'middleware'=>'auth'
+],function(){
+    getUrl('/','AdminController@index','dashboard');
+    getUrl('/tambahmenu','AdminController@tambahMenu','admin-tambahmenu');
+    getUrl('/listmenu','MenuController@listMenu','admin-listmenu');
+
+    Route::group(['prefix'=>'post'],function(){
+        postUrl('/tambahmenu','MenuController@simpan','postAddmenu');
+    });
 });

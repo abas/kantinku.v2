@@ -11,7 +11,7 @@
                 <button class="btn btn-link text-gray pull-right hidden-md hidden-lg" type="button" data-toggle="layout" data-action="sidebar_close">
                     <i class="fa fa-times"></i>
                 </button>
-                <a class="h5 text-white" href="index.html">
+                <a class="h5 text-white" href="{{url('/')}}">
                     <i class="fa fa-circle-o-notch text-primary"></i>
                     <span class="h4 font-w600 sidebar-mini-hide"> Kantin
                         <b class="text-primary">KU</b>
@@ -24,7 +24,7 @@
             <div class="side-content">
                 <ul class="nav-main">
                     <li>
-                        <a href="dashboard.html">
+                        <a href="{{route('dashboard')}}">
                             <i class="si si-speedometer"></i>
                             <span class="sidebar-mini-hide">Pesanan</span>
                         </a>
@@ -33,13 +33,13 @@
                         <span class="sidebar-mini-hide">Menu</span>
                     </li>
                     <li>
-                        <a href="tambah_menu.html">
+                        <a href="{{route('admin-tambahmenu')}}">
                             <i class="si si-plus"></i>
                             <span class="sidebar-mini-hide">Tambah</span>
                         </a>
                     </li>
                     <li>
-                        <a href="list_menu.html">
+                        <a href="{{route('admin-listmenu')}}">
                             <i class="si si-list"></i>
                             <span class="sidebar-mini-hide">List</span>
                         </a>
@@ -54,9 +54,17 @@
                                 </a>
                             </li> -->
                     <li>
-                        <a href="login.html">
+                        <a 
+                            href="{{route('logout')}}"
+                            onclick="
+                                event.preventDefault();
+                                document.getElementById('logout-form').submit();
+                            ">
                             <i class="si si-logout"></i>
                             <span class="sidebar-mini-hide">Logout</span>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
                         </a>
                     </li>
                     <!-- <li class="nav-main-heading">

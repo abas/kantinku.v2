@@ -13,12 +13,23 @@ class MenuController extends Controller
         $this->middleware('auth');
     }
 
+    /**
+     * view list menu
+     * get value by Auth::user()->id
+     */
+    public function listMenu()
+    {
+        // return Auth::user()->id;
+        $menus = Menu::where('id_user',Auth::user()->id)->get();
+        return view('admin.list-menu',compact('menus'));
+    }
+
     public function simpan(Request $r)
     {
         $validator = Validator::make($r->all(), [
             'nama_menu'         => 'required|min:3',
             'deskripsi_menu'    => 'required|min:10',
-            'harga_menu'        => 'required|min:500',
+            'harga_menu'        => 'required',
             'stock_menu'        => 'required|min:1',
             'tipe_menu'         => 'required',
         ]);
@@ -27,6 +38,7 @@ class MenuController extends Controller
             return redirect()->back()
                             ->withErrors($validator)
                             ->withInput();
+            // return $validator;
         }
 
         /**
@@ -39,11 +51,19 @@ class MenuController extends Controller
         $menu->harga_menu     = $r->harga_menu;
         $menu->stock_menu     = $r->stock_menu;
         $menu->tipe_menu      = $r->tipe_menu;
+        $menu->image_menu     = $r->image_menu;
         if($menu->save()){
-            return $menu;
-        }return null;
+            // return $menu;
+            // return redirect(route('admin-listmenu'))->with('msg','menu berhasil di tambahkan');
+            return redirect()->back()->with('msg','menu berhasil di tambahkan');
+        }
+        // return null;
+        return redirect()->back()->with('msg','gagal menambahkan menu');
     }
 
+    /**
+     * update menu by : id menu auth::user->id
+     */
     public function update(Request $r, $id)
     {
         $menu = Menu::find($id);
@@ -55,8 +75,14 @@ class MenuController extends Controller
         $menu->tipe_menu        = $r->tipe_menu;
 
         if($menu->update()){
-            return $menu;
-        }return null;
+            return [
+                'msg'=>'update berhasil'
+            ];
+            // return redirect()->back()->with('msg','update berhasil');
+        }
+        return [
+            'msg'=>'update gagal'
+        ];
     }
 
     /**
@@ -65,6 +91,17 @@ class MenuController extends Controller
      */
     public function delete($id)
     {
-        Menu::find($id)->delete;
+        $menu = Menu::find($id);
+        if($menu->id_user == Auth::user()->id){
+            if($menu->delete()){
+                return [
+                    'msg'=>'berhasil menghapus menu'
+                ];
+            }return [
+                'msg'=>'gagal menghapus menu'
+            ];
+        }return [
+            'msg'=>'anda tidak punya akses untuk proses ini'
+        ];
     }
 }

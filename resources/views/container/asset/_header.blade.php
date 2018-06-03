@@ -11,7 +11,7 @@
         <ul class="dropdown-menu dropdown-menu-right">
           <li class="dropdown-header">Profile</li>
           <li>
-            <a tabindex="-1" href="#">
+            <a tabindex="-1" href="{{route('dashboard')}}">
               <i class="si si-settings pull-right"></i>Dashboard
             </a>
           </li>
