@@ -16,6 +16,9 @@ class Menu extends Model
 
     public static function getName($id)
     {
+        if($id == null){
+            return null;
+        }
         return Menu::find($id)->nama_menu;
     }
 
@@ -66,5 +69,21 @@ class Menu extends Model
             return true;
         }return false;
     }   
+
+    public static function makanansWhereID($id_user)
+    {
+        return Menu::where([
+            ['tipe_menu','=','makanan'],
+            ['id_user','=',$id_user]]
+        );
+    }
+
+    public static function minumansWhereID($id_user)
+    {
+        return Menu::where([
+            ['tipe_menu','=','minuman'],
+            ['id_user','=',$id_user]]
+        );
+    }
 
 }

@@ -6,7 +6,55 @@
     <!-- Simple Wizards -->
     <h2 class="content-heading">Daftar Pesanan</h2>
     <div class="row">
-      @if($pesanans->count() != 0)
+    <div class="col-sm-12">
+        <div class="col-sm-12 text-right">
+          {{$pesanans->render()}}
+        </div>
+        <!-- Hover Table -->
+        <div class="block">
+          <div class="block-content">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th class="text-center" style="width: 50px;">#</th>
+                  <th>Antar/Ambil</th>
+                  <th class="hidden-xs">Atasnama</th>
+                  <th class="hidden-xs">Kontak</th>
+                  <th class="hidden-xs">Jumlah</th>
+                  <th class="hidden-xs">Alamat</th>
+                  <th class="text-center" style="width: 100px;">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                @php $i=1; @endphp @foreach($pesanans as $pesanan)
+                <tr>
+                  <td class="text-center">{{$i++}}</td>
+                  <td style="text-transform:capitalize">{{$pesanan->metode_pemesanan}}</td>
+                  <td>{{$pesanan->nama_pemesan}}</td>
+                  <td>{{$pesanan->kontak}}</td>
+                  <td class="hidden-xs">
+                    <span class="label label-danger">{{$pesanan->jumlah_pesanan}}</span>
+                  </td>
+                  <td>{{$pesanan->alamat}}</td>
+                  <td class="text-center">
+                    <div class="btn-group">
+                      <a class="btn btn-xs btn-default" href="#">
+                        <i class="fa fa-pencil"></i>
+                      </a>
+                      <a class="btn btn-xs btn-default" href="#">
+                        <i class="fa fa-times"></i>
+                      </a>
+                    </div>
+                  </td>
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- END Hover Table -->
+      </div>
+      @if($pesanans->count() > 0)
       @foreach($pesanans as $pesanan)
       <div class="col-lg-6">
         <!-- Simple Classic Wizard (.js-wizard-simple class is initialized in js/pages/base_forms_wizard.js) -->

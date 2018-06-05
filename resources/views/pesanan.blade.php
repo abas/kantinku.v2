@@ -39,18 +39,22 @@
                           </div>
                         </div>
                         <div class="form-group">
-
-
                           <div class="col-xs-12">
                             <label for="nama_pemesan">Nama Pemesan</label>
                             <div class="form-control">{{$pesanan->nama_pemesan}}</div>
                           </div>
                         </div>
                         <div class="form-group">
-
                           <div class="col-xs-12">
                             <label for="kontak">Kontak</label>
                             <div class="form-control">{{$pesanan->kontak}}</div>
+                          </div>
+                        </div>
+                        <div class="col-xs-12">
+                          <label for="note">Note</label>
+                          <div style="text-align: justify" class="alert alert-warning">
+                            <b>pesanan tidak akan di layani jika anda tidak bisa dikonfirmasi dari penjual dan terlambat membayar
+                              dalam kurun waktu 5 menit, setelah konfirmasi dari penjual.</b>
                           </div>
                         </div>
                         @if($pesanan->metode_pemesanan == 'antar')
@@ -84,13 +88,6 @@
                               </div>
                             </div>
                           </div>
-                          <div class="col-xs-12">
-                            <label for="note">Note</label>
-                            <div style="text-align: justify" class="alert alert-warning">
-                              <b>pesanan tidak akan di layani jika anda tidak bisa dikonfirmasi dari penjual dan terlambat membayar
-                                dalam kurun waktu 5 menit, setelah konfirmasi dari penjual.</b>
-                            </div>
-                          </div>
                         </div>
                         @endif
                       </div>
@@ -122,22 +119,7 @@
                         <span>
                           harga menu /porsi : <b>{{$harga}}</b>
                         </span>
-                      <h5>total pembayaran Rp. <span id="getHarga"></span></h5>
-                      <div id="totalharga" style="display: none">x{{$pesanan->jumlah_pesanan * $harga}}</div>
-                      <script>
-                        priceFormat();function priceFormat(){
-                          var harga = document.getElementById('totalharga').innerHTML
-                          var getHarga = ''
-                          for(i=1;i<harga.length;i++){
-                            (i%3==0) ? 
-                              (i==harga.length-1) ? 
-                                getHarga+=harga[i]+'.':getHarga+=harga[i]+','
-                              :
-                              getHarga+=harga[i]
-                          }
-                          document.getElementById('getHarga').innerHTML = getHarga+' -'
-                        }
-                      </script>
+                      <h5>total pembayaran Rp. <span>{{$pesanan->jumlah_pesanan * $harga}}</span></h5>
                     </div>
                   </div>
                   <!-- END Images -->

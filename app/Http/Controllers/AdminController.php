@@ -25,6 +25,15 @@ class AdminController extends Controller
         ];
     }
 
+
+    /**
+     * pprofile
+     */
+    public function pprofile()
+    {
+        return null;
+    }
+
     /**
      * view tambah menu
      */

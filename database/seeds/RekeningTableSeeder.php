@@ -11,14 +11,12 @@ class RekeningTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i=0; $i < 20; $i++) { 
-            DB::table('rekenings')->insert([
-                'id_user'           => $i+1,
-                'atasnama'          => str_random(5),
-                'no_rekening'       => str_random(20),    
-                'jenis_rekening'    => $this->getJenisRekening(),
-            ]);
-        }
+        DB::table('rekenings')->insert([
+            'id_user'           => 1,
+            'atasnama'          => str_random(5),
+            'no_rekening'       => str_random(20),    
+            'jenis_rekening'    => $this->getJenisRekening(),
+        ]);
     }
 
     private function getJenisRekening()

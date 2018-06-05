@@ -24,11 +24,16 @@
                             <b>Rp {{$menu->harga_menu}}</b>
                           </div>
                         </div>
+                        @if($menu->image_menu != null)
+                        <img class="img-responsive" src="{{asset('uploads/images/menu/'.$menu->image_menu)}}" alt="">
+                        @else
                         <img class="img-responsive" src="{{asset('assets/img/food/pizza.jpg')}}" alt="">
+                        @endif
                       </a>
                     </div>
                     <div class="col-xs-12">
-                      <h3>{{$menu->deskripsi_menu}}</h3>
+                      <h3>{{$menu->nama_menu}}</h3>
+                      <p style="text-align:justify;">{{$menu->deskripsi_menu}}</p>
                     </div>
                     <div class="col-xs-12">
                       <p>stock :
@@ -76,10 +81,15 @@
                               {{$errors->has('metode_pemesanan') ? ' has-error':''}}
                             ">
                             <label for="jenis_pemesanan">Jenis Pemesanan</label>
-                            <select name="metode_pemesanan" class="form-control">
+                            <select  
+                              onclick="showAlamatForm()"
+                              onkeyup="showAlamatForm()"
+                              id="jenis_pemesanan" 
+                              name="metode_pemesanan" 
+                              class="form-control">
                               <option value="">...</option>
-                              <option value="Antar">Antar</option>
-                              <option value="Ambil">Ambil</option>
+                              <option onkeyup="showAlamatForm()" value="Antar">Antar</option>
+                              <option onkeyup="showAlamatForm()" value="Ambil">Ambil</option>
                             </select>
                             @if($errors->has('metode_pemesanan'))
                               <div class="help-block text-right">{{$errors->first('metode_pemesanan')}}</div>
@@ -92,7 +102,8 @@
                             ">
                             <label for="jumlah_pesanan">Jumlah Pesanan</label>
                             <input 
-                              type="number" 
+                              onkeyup="showAlamatForm()"
+                              type="number"
                               min="1" 
                               max="{{$menu->stock_menu}}" 
                               name="jumlah_pesanan" 
@@ -141,21 +152,26 @@
                             @endif
                           </div>
                         </div>
-                        <div class="form-group">
+                       
+                        <div class="form-group" id="group-alamat" style="display: none">
                           <div 
                             class="
                               col-xs-12
                               {{$errors->has('alamat')?' has-error':''}}
                             ">
                             <label for="alamat">Alamat</label>
-                            <input type="text" name="alamat" id="" class="form-control" placeholder="alamat yang dituju">
+                            <input type="text" name="alamat" id="input-alamat" class="form-control" placeholder="alamat yang dituju">
                             @if($errors->has('alamat'))
                               <div class="help-block text-right">{{$errors->first('alamat')}}</div>
                             @endif
                           </div>
                         </div>
-                        <div class="form-group text-right">
-                          <div class="col-xs-12">
+                        <div class="form-group">
+                          <div class="col-sm-6">
+                            <button class="btn btn-sm btn-danger" type="submit">
+                              <i class="fa fa-arrow-circle-left push-5-r"></i> Batal</button>
+                          </div>
+                          <div class="col-sm-6 text-right">
                             <button class="btn btn-sm btn-success" type="submit">
                               <i class="fa fa-cart-plus  push-5-r"></i> Pesan</button>
                           </div>
@@ -195,5 +211,23 @@
     // Init page helpers (Appear + Magnific Popup plugins)
     App.initHelpers(['appear', 'magnific-popup']);
   });
+</script>
+<script>
+  // to check is value antar
+  function isAntar(komponen){
+    return komponen == 'Antar'
+  }
+
+  // to show / hide alamat form
+  function showAlamatForm(){
+    var alamat = document.getElementById('group-alamat')
+    var jenis_pemesanan = document.getElementById('jenis_pemesanan').value
+    if(isAntar(jenis_pemesanan)){
+      alamat.removeAttribute('style')
+    }else{
+      alamat.setAttribute('style','display:none')
+      var val_alamat = document.getElementById('input-alamat').value = null
+    }
+  }
 </script>
 @endsection

@@ -13,7 +13,7 @@ class PesananTableSeeder extends Seeder
     {
         for ($i=0; $i < 20; $i++) { 
             DB::table('pesanans')->insert([
-                'id_user'           => rand(1,20),
+                'id_user'           => 1,
                 'id_menu'           => rand(1,20),
                 'is_selesai'        => false,
                 'is_batal'          => true,

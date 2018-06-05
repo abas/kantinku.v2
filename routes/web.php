@@ -35,10 +35,39 @@ Route::group([
     'middleware'=>'auth'
 ],function(){
     getUrl('/','AdminController@index','dashboard');
-    getUrl('/tambahmenu','AdminController@tambahMenu','admin-tambahmenu');
-    getUrl('/listmenu','MenuController@listMenu','admin-listmenu');
+    Route::group(['prefix'=>'account'],function(){
+        getUrl('/','UserController@profile','admin-userprofile');
+        postUrl('/updateprofle','UserController@update','admin-updateprofile');
+    });
+
+    Route::group(['prefix'=>'get'],function(){
+        getUrl('/tambahmenu','AdminController@tambahMenu','admin-tambahmenu');
+        getUrl('/listmenu','MenuController@listMenu','admin-listmenu');
+        getUrl('/updatemenu{id_menu}','MenuController@edit','admin-editmenu');
+        getUrl('/deletemenu{id}','MenuController@delete','admin-deletemenu');
+    });
 
     Route::group(['prefix'=>'post'],function(){
         postUrl('/tambahmenu','MenuController@simpan','postAddmenu');
+        postUrl('/updatemenu{id_menu}','MenuController@update','admin-updatemenu');
     });
 });
+
+
+
+
+// test route
+
+getUrl('uploads/images/user/','AdminController@pprofile','tes-get-pprofile');
+
+Route::group(['prefix'=>'test'],function(){
+    Route::group(['prefix'=>'get'],function(){
+        getUrl('/uploadimage','MenuController@getUploadImage','test-get-uploadimage');
+        getUrl('/deletemenu{id}','MenuController@delete','tes-get-deletemenu');
+   });
+
+   Route::group(['prefix'=>'post'],function(){
+    postUrl('/uploadimage','MenuController@postUploadImage','test-post-uploadimage');
+   });
+});
+

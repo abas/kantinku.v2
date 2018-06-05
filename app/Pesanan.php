@@ -25,19 +25,17 @@ class Pesanan extends Model
         'id_menu',
     ];
 
-    public static function getBanyakPesanan($id)
+    public static function pesananByIdUser($id_user)
     {
-        return Pesanan::find(decrypt($id))->banyak_pesanan;
+        return Pesanan::where('id_user',$id_user);
     }
 
-    public static function isSlesai($id)
+    public static function pesananIsDoneWithIDUser($id_user)
     {
-        return Pesanan::find(decrypt($id))->is_selesai;
-    }
-
-    public static function isBatal($id)
-    {
-        return Pesanan::find(decrypt($id))->is_batal;
+        return Pesanan::where([
+            ['is_selesai','=',true],
+            ['id_user','=',$id_user]
+        ]);
     }
 
     public static function makeSelesai($id)

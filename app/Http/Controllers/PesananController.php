@@ -17,12 +17,13 @@ class PesananController extends Controller
     public function pesan(Request $request,$id_menu)
     {
         $menu = Menu::find($id_menu);
+        $antar = $request->metode_pemesanan;
         $validator = Validator::make($request->all(), [
             'metode_pemesanan'  => 'required',
             'jumlah_pesanan'    => 'required|min:1|max:'.$menu->stock_menu,
             'nama_pemesan'      => 'required|min:3|max:255',
             'kontak'            => 'required|min:5|max:255',
-            'alamat'            => 'required|min:5|max:255',
+            'alamat'            => $antar == 'Antar' ? 'required|min:5|max:255' : '',
         ]);
 
         if ($validator->fails()) {

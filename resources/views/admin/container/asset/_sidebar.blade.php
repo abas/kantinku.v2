@@ -47,16 +47,14 @@
                     <li class="nav-main-heading">
                         <span class="sidebar-mini-hide">Accounts</span>
                     </li>
-                    <!-- <li>
-                                <a href="login.html">
-                                    <i class="si si-login"></i>
-                                    <span class="sidebar-mini-hide">Login</span>
-                                </a>
-                            </li> -->
                     <li>
-                        <a 
-                            href="{{route('logout')}}"
-                            onclick="
+                        <a href="{{route('admin-userprofile')}}">
+                            <i class="si si-info"></i>
+                            <span class="sidebar-mini-hide">Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('logout')}}" onclick="
                                 event.preventDefault();
                                 document.getElementById('logout-form').submit();
                             ">

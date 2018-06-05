@@ -53,8 +53,11 @@
                 <b>Rp {{$makanan->harga_menu}}</b>
               </div>
             </div>
+            @if($makanan->image_menu != null)
+            <img class="img-responsive" src="{{asset('uploads/images/menu/'.$makanan->image_menu)}}" alt="">
+            @else
             <img class="img-responsive" src="assets/img/food/aneka-gorengan.jpg" alt="">
-
+            @endif
             <div class="block-content block-content-full text-left">
               <h4 class="">{{$makanan->nama_menu}}</h4>
               <p>
@@ -100,8 +103,11 @@
                 <b class="priceFormat">{{$minuman->harga_menu}}</b>
               </div>
             </div>
+            @if($minuman->image_menu!=null)
+            <img class="img-responsive" src="{{asset('uploads/images/menu/'.$minuman->image_menu)}}" alt="">
+            @else
             <img class="img-responsive" src="{{asset('assets/img/food/es-teh.jpg')}}" alt="">
-
+            @endif
             <div class="block-content block-content-full text-left">
               <h4 class="">{{$minuman->nama_menu}}</h4>
               <p class="">{{$minuman->deskripsi_menu}}</p>
