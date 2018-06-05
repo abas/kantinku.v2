@@ -132,14 +132,11 @@ class MenuController extends Controller
         $menu->stock_menu       = $r->stock_menu;
 
         if($menu->update()){
-            return [
-                'msg'=>'update berhasil'
-            ];
-            // return redirect()->back()->with('msg','update berhasil');
+            Session::flash('update-sukses',true);
+        }else{
+            Session::flash('update-gagal',true);
         }
-        return [
-            'msg'=>'update gagal'
-        ];
+        return redirect(route('admin-listmenu'));
     }
 
     /**

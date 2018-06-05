@@ -49,7 +49,7 @@
                     </li>
                     <li>
                         <a href="{{route('admin-userprofile')}}">
-                            <i class="si si-info"></i>
+                            <i class="si si-user"></i>
                             <span class="sidebar-mini-hide">Profile</span>
                         </a>
                     </li>

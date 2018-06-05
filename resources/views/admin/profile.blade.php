@@ -8,18 +8,15 @@
       <div class="bg-image" style="background-image: url('assets/img/photos/photo6@2x.jpg');">
         <div class="block-content bg-primary-dark-op text-center overflow-hidden">
           <div class="push-30-t push animated fadeInDown">
-            <img class="img-avatar img-avatar96 img-avatar-thumb" src="assets/img/avatars/avatar4.jpg" alt="">
+            <img class="img-avatar img-avatar96 img-avatar-thumb" src="{{asset('uploads/images/user/').'/'.$user->pprofil}}" alt="">
           </div>
           <div class="push-30 animated fadeInUp text-white">
             <h2 class="h4 font-w600 push-5">{{$user->name}}</h2>
-            <h3 class="h5 text-gray">{{$user->email}}</h3><br>
-            <b 
-              class="text-white" 
-              data-toggle="modal" 
-              data-target="#modal-popin"
-              style="
+            <h3 class="h5 text-gray">{{$user->email}}</h3>
+            <br>
+            <b class="text-white" data-toggle="modal" data-target="#modal-popin" style="
                 cursor: pointer;
-              ">  
+              ">
               <span class="fa fa-edit"></span> Edit
             </b>
           </div>
@@ -530,45 +527,29 @@
         </div>
         <div class="block-content">
           <div class="block-content">
-            <form 
-              class="form-horizontal" 
-              action="{{route('admin-updateprofile')}}" 
-              method="post">
+            <form class="form-horizontal" action="{{route('admin-updateprofile')}}" method="post" enctype="multipart/form-data">
               @csrf
               <div class="form-group">
                 <div class="col-sm-12">
                   <label for="username">Nama Pengguna</label>
-                  <input 
-                    class="form-control" 
-                    name="name" 
-                    placeholder="nama saat ini : {{$user->name}}" 
-                    type="text"
-                    value="{{$user->name}}">
+                  <input class="form-control" name="name" placeholder="nama saat ini : {{$user->name}}" type="text" value="{{$user->name}}">
                 </div>
               </div>
               <div class="form-group">
                 <div class="col-sm-12">
-                  <img
-                    class="img-responsive" 
-                    src="{{config('urls._pprofile').$user->pprofile}}" 
-                    alt="{{$user->pprofile}}">
+                  <img class="img-responsive" src="{{asset('uploads/images/user/').'/'.$user->pprofil}}" alt="{{$user->pprofile}}">
                 </div>
               </div>
               <div class="form-group">
                 <div class="col-sm-12">
                   <label for="pprofile">Foto Profil</label>
-                  <input 
-                    class=""
-                    name="pprofile"
-                    type="file"
-                    >
-                  <a href="{{route('tes-get-pprofile').$user->pprofile}}">{{config('urls._menus')}}</a>
+                  <input class="" name="pprofil" type="file" value="jsbjgvj">
                 </div>
               </div>
               <div class="form-group">
                 <div class="col-xs-12">
                   <button class="btn btn-sm btn-info" type="submit">
-                    <i class="fa fa-send push-5-r"></i> Send Message</button>
+                    <i class="si si-refresh push-5-r"></i> Update</button>
                 </div>
               </div>
             </form>
@@ -591,4 +572,41 @@
 
 <!-- Page JS Code -->
 <script src="assets/js/pages/base_forms_wizard.js"></script>
-@endsection
+
+{{-- alert --}} @if(Session('upload-gagal'))
+<script>
+  swal({
+    title: "Error!",
+    text: "profile tidak dapat di perbarui, coba beberapa saat lagi!",
+    icon: "warning",
+    button: "ok!",
+  });
+</script>
+@elseif(Session('upload-sukses'))
+<script>
+  swal({
+    title: "Berhasil!",
+    text: "profile sudah diperbarui!",
+    icon: "success",
+    button: "ok!",
+  });
+</script>
+@elseif(Session('update-denied'))
+<script>
+  swal({
+    title: "Error!",
+    text: "tidak dapat melakukan update!",
+    icon: "error",
+    button: "ok!",
+  });
+</script>
+@elseif(Session('update-sukses'))
+<script>
+    swal({
+      title: "Berhasil!",
+      text: "profile sudah diperbarui!",
+      icon: "success",
+      button: "ok!",
+    });
+  </script>
+@endif @endsection

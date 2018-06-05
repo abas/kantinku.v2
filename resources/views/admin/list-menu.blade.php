@@ -10,7 +10,7 @@
       <div class="col-sm-12">
         <div class="block-header bg-white">
           <div class="block-options">
-              {{$menus->render()}}
+            {{$menus->render()}}
           </div>
           <h3 class="block-title">List Menu Terbaru</h3>
         </div>
@@ -57,136 +57,110 @@
         </div>
         <!-- END Hover Table -->
       </div>
-      @endif
-      @if($menus->count()>0) @foreach($menus as $menu)
-      <div class="col-lg-6" id="list_menu1-menu{{$menu->id}}">
-        <!-- Simple Classic Wizard (.js-wizard-simple class is initialized in js/pages/base_forms_wizard.js) -->
-        <!-- For more examples you can check out http://vadimg.com/twitter-bootstrap-wizard-example/ -->
-        <div class="js-wizard-simple block">
-          <!-- Step Tabs -->
-          <ul class="nav nav-tabs nav-justified">
-            <li class="active">
-              <a href="#simple-classic-step1-menu{{$menu->id}}" data-toggle="tab">Menu</a>
-            </li>
-            <li>
-              <a href="#simple-classic-step2-menu{{$menu->id}}" data-toggle="tab">Details</a>
-            </li>
-          </ul>
-          <!-- END Step Tabs -->
+      @endif @if($menus->count()>0) @foreach($menus as $menu)
+      <menu id="{{$menu->id}}" style="display:none"></menu>
+        <div class="col-lg-6" id="list_menu1-menu{{$menu->id}}">
+          <!-- Simple Classic Wizard (.js-wizard-simple class is initialized in js/pages/base_forms_wizard.js) -->
+          <!-- For more examples you can check out http://vadimg.com/twitter-bootstrap-wizard-example/ -->
+          <div class="js-wizard-simple block">
+            <!-- Step Tabs -->
+            <ul class="nav nav-tabs nav-justified">
+              <li class="active">
+                <a href="#simple-classic-step1-menu{{$menu->id}}" data-toggle="tab">Menu</a>
+              </li>
+              <li>
+                <a href="#simple-classic-step2-menu{{$menu->id}}" data-toggle="tab">Details</a>
+              </li>
+            </ul>
+            <!-- END Step Tabs -->
 
-          <!-- Form -->
-          <div class="form-horizontal">
-            <!-- Steps Content -->
-            <div class="block-content tab-content">
-              <!-- Step 1 -->
-              <div class="tab-pane push-30-t push-50 active" id="simple-classic-step1-menu{{$menu->id}}">
-                <div class="form-group">
-                  <div class="col-sm-10 col-sm-offset-1">
-                    <label for="">
-                      <h3>{{$menu->nama_menu}}</h3>
-                    </label>
-                    @if($menu->image_menu != null)
-                    <img src="{{asset('uploads/images/menu/'.$menu->image_menu)}}" alt="" class="img-responsive" id="image_menu"> @else
-                    <img src="{{asset('assets/img/food/daging.jpg')}}" alt="" class="img-responsive" id="image_menu"> @endif
-                  </div>
-                </div>
-              </div>
-              <!-- END Step 1 -->
-
-              <!-- Step 2 -->
-              <div class="tab-pane push-30-t push-50" id="simple-classic-step2-menu{{$menu->id}}">
-                <div class="form-group">
-                  <div class="col-sm-10 col-sm-offset-1">
-                    <div class="row">
-                      <div class="col-sm-6">
-
-                        <label for="simple-classic-details">Harga</label>
-                        <p class="form-control">Rp. {{$menu->harga_menu}}</p>
-                      </div>
-                      <div class="col-sm-6">
-                        <label for="simple-classic-details">Stok Tersedia</label>
-                        <p class="form-control">
-                          <b>{{$menu->stock_menu}}</b>
-                        </p>
-                      </div>
+            <!-- Form -->
+            <div class="form-horizontal">
+              <!-- Steps Content -->
+              <div class="block-content tab-content">
+                <!-- Step 1 -->
+                <div class="tab-pane push-30-t push-50 active" id="simple-classic-step1-menu{{$menu->id}}">
+                  <div class="form-group">
+                    <div class="col-sm-10 col-sm-offset-1">
+                      <label for="">
+                        <h3>{{$menu->nama_menu}}</h3>
+                      </label>
+                      @if($menu->image_menu != null)
+                      <img src="{{asset('uploads/images/menu/'.$menu->image_menu)}}" alt="" class="img-responsive" id="image_menu"> @else
+                      <img src="{{asset('assets/img/food/daging.jpg')}}" alt="" class="img-responsive" id="image_menu"> @endif
                     </div>
                   </div>
-                  <div class="col-sm-10 col-sm-offset-1">
-                    <label for="simple-classic-details">Jenis Menu</label>
-                    <p class="form-control">{{$menu->tipe_menu}}</p>
+                </div>
+                <!-- END Step 1 -->
+
+                <!-- Step 2 -->
+                <div class="tab-pane push-30-t push-50" id="simple-classic-step2-menu{{$menu->id}}">
+                  <div class="form-group">
+                    <div class="col-sm-10 col-sm-offset-1">
+                      <div class="row">
+                        <div class="col-sm-6">
+
+                          <label for="simple-classic-details">Harga</label>
+                          <p class="form-control">Rp. {{$menu->harga_menu}}</p>
+                        </div>
+                        <div class="col-sm-6">
+                          <label for="simple-classic-details">Stok Tersedia</label>
+                          <p class="form-control">
+                            <b>{{$menu->stock_menu}}</b>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-10 col-sm-offset-1">
+                      <label for="simple-classic-details">Jenis Menu</label>
+                      <p class="form-control">{{$menu->tipe_menu}}</p>
+                    </div>
+                    <div class="col-sm-10 col-sm-offset-1">
+                      <label for="simple-classic-details">Deskripsi</label>
+                      <br> {{$menu->deskripsi_menu}}
+                    </div>
                   </div>
-                  <div class="col-sm-10 col-sm-offset-1">
-                    <label for="simple-classic-details">Deskripsi</label>
-                    <br> {{$menu->deskripsi_menu}}
+                </div>
+                <!-- END Step 2 -->
+
+              </div>
+              <!-- END Steps Content -->
+
+              <!-- Steps Navigation -->
+              <div class="block-content block-content-mini block-content-full border-t">
+                <div class="row">
+                  <div class="col-xs-6">
+                    <a class="wizard-prev btn btn-success" href="{{route('admin-editmenu',$menu->id)}}">
+                      Update</a>
+                    <!-- <button class="btn btn-info" data-toggle="modal" data-target="#modal-normal-{{$menu->id}}" type="button">Launch Modal</button> -->
                   </div>
+                  <div id="delete-menu" class="col-xs-6 text-right">
+                    <a class="wizard-prev btn btn-danger" onclick="deleteMenu('{{route('admin-deletemenu',$menu->id)}}')">
+                      Delete</a>
+                  </div>
+
                 </div>
               </div>
-              <!-- END Step 2 -->
-
+              <!-- END Form -->
             </div>
-            <!-- END Steps Content -->
-
-            <!-- Steps Navigation -->
-            <div class="block-content block-content-mini block-content-full border-t">
-              <div class="row">
-                <div class="col-xs-6">
-                  <a class="wizard-prev btn btn-success" href="{{route('admin-editmenu',$menu->id)}}">
-                    Update</a>
-                  <!-- <button class="btn btn-info" data-toggle="modal" data-target="#modal-normal-{{$menu->id}}" type="button">Launch Modal</button> -->
-                </div>
-                <div class="col-xs-6 text-right">
-                  <a class="wizard-prev btn btn-danger" href="{{route('admin-deletemenu',$menu->id)}}">
-                    Delete</a>
-                </div>
-              </div>
-            </div>
-            <!-- END Form -->
+            <!-- END Simple Classic Wizard -->
           </div>
-          <!-- END Simple Classic Wizard -->
-        </div>
 
-      </div>
-      <!-- END Page Content -->
-      @endforeach @else
-      <div class="col-sm-12">
-        <div class="alert alert-danger">
-          anda belum membuat menu
         </div>
-      </div>
-      @endif
+        <!-- END Page Content -->
+        @endforeach @else
+        <div class="col-sm-12">
+          <div class="alert alert-danger">
+            anda belum membuat menu
+          </div>
+        </div>
+        @endif
     </div>
   </div>
 </main>
-@if(Session('delete-sukses'))
-<script>
-  swal({
-  title: "Okay!",
-  text: "Menu berhasil di hapus!",
-  icon: "success",
-  button: "Done!",
-});
-</script>
-@elseif(Session('delete-failed'))
-<script>
-  swal({
-  title: "Maaf!",
-  text: "Menu gagal untuk di hapus!",
-  icon: "warning",
-  button: "Ok!",
-});
-</script>
-@elseif(Session('delete-denied'))
-<script>
-  swal({
-  title: "Oiiit!",
-  text: "Anda tidak punya akses untuk menghapus menu ini!",
-  icon: "danger",
-  button: "Ok!",
-});
-</script>
-@endif
 <!-- END Main -->
-@endsection @section('_script')
+@endsection
+@section('_script')
 <!-- Page JS Plugins -->
 <script src="assets/js/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
 <script src="assets/js/plugins/jquery-validation/jquery.validate.min.js"></script>
@@ -194,6 +168,65 @@
 <!-- Page JS Code -->
 <script src="assets/js/pages/base_forms_wizard.js"></script>
 
-<!-- alert delete-->
+<!-- alert -->
 
+<script>
+    function deleteMenu(url) {
+      swal({
+          title: "Hapus Menu",
+          text: "apa kamu yakin ingin menghapus menu ini?",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        })
+        .then((willDelete) => {
+          if (willDelete) {
+            swal("Poof! menu berhasil di hapus!", {
+              icon: "success",
+            }).then(()=>{
+              window.location = url
+            })
+          }
+        }
+      );
+    }
+  </script>
+  
+  @if(Session('delete-sukses'))
+  <script>
+    swal({
+      title: "Okay!",
+      text: "Menu berhasil di hapus!",
+      icon: "success",
+      button: "Done!",
+    });
+  </script>
+  @elseif(Session('delete-failed'))
+  <script>
+    swal({
+      title: "Maaf!",
+      text: "Menu gagal untuk di hapus!",
+      icon: "warning",
+      button: "Ok!",
+    });
+  </script>
+  @elseif(Session('delete-denied'))
+  <script>
+    swal({
+      title: "Oiiit!",
+      text: "Anda tidak punya akses untuk menghapus menu ini!",
+      icon: "danger",
+      button: "Ok!",
+    });
+  </script>
+  @elseif(Session('update-sukses'))
+  <script>
+    swal({
+      title: "Updated!",
+      text: "menu berhasil di update!",
+      icon: "success",
+      button: "Ok!",
+    });
+  </script>
+  @endif 
 @endsection
