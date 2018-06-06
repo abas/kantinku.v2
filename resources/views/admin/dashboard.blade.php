@@ -17,6 +17,7 @@
               <thead>
                 <tr>
                   <th class="text-center" style="width: 50px;">#</th>
+                  <th class="hidden-xs">Menu</th>
                   <th>Antar/Ambil</th>
                   <th class="hidden-xs">Atasnama</th>
                   <th class="hidden-xs">Kontak</th>
@@ -29,6 +30,7 @@
                 @php $i=1; @endphp @foreach($pesanans as $pesanan)
                 <tr>
                   <td class="text-center">{{$i++}}</td>
+                  <td>{{$pesanan->getMenuName($pesanan->id_menu)}}</td>
                   <td style="text-transform:capitalize">{{$pesanan->metode_pemesanan}}</td>
                   <td>{{$pesanan->nama_pemesan}}</td>
                   <td>{{$pesanan->kontak}}</td>

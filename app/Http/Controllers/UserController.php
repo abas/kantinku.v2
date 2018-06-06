@@ -18,9 +18,10 @@ class UserController extends Controller
         $minumans = Menu::minumansWhereID($user->id)->get();
         $pesanans = Pesanan::pesananByIdUser($user->id)->get();
         $transaksi_selesai = Pesanan::pesananIsDoneWithIDUser($user->id)->get();
+        $rekening = Rekening::where('id_user',$user->id)->get()->first();
         // return $transaksi_selesai;
         return view('admin.profile',compact(
-            'user','makanans','minumans','pesanans','transaksi_selesai'
+            'user','makanans','minumans','pesanans','transaksi_selesai','rekening'
         ));
     }    
 

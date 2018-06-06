@@ -50,6 +50,7 @@ Route::group([
     Route::group(['prefix'=>'post'],function(){
         postUrl('/tambahmenu','MenuController@simpan','postAddmenu');
         postUrl('/updatemenu{id_menu}','MenuController@update','admin-updatemenu');
+        postUrl('/updatenorek{id_user}','RekeningController@update','admin-updaterekening');
     });
 });
 

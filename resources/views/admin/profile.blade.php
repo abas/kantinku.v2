@@ -52,26 +52,98 @@
     <!-- Main Content -->
     <div class="row">
       <div class="col-sm-5 col-sm-push-7 col-lg-4 col-lg-push-8">
-        <!-- Follow -->
-        <div class="block">
-          <div class="block-content block-content-full text-center">
-            <button class="btn btn-sm btn-default">
-              <i class="fa fa-fw fa-plus text-success"></i> Follow</button>
-            <button class="btn btn-sm btn-default">
-              <i class="fa fa-fw fa-inbox text-info"></i> Send Message</button>
+        <div class="block block-themed">
+          <div class="block-header bg-info">
+            <ul class="block-options">
+              <li>
+                <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="demo">
+                  <i class="si si-refresh"></i>
+                </button>
+              </li>
+              <li>
+                <button type="button" data-toggle="block-option" data-action="content_toggle">
+                  <i class="si si-arrow-up"></i>
+                </button>
+              </li>
+            </ul>
+            <h3 class="block-title">Rekening</h3>
           </div>
-        </div>
-        <!-- END Follow -->
-
-        <!-- About -->
-        <div class="block">
           <div class="block-content">
-            <p>Hi there, welcome to my profile!</p>
-            <p>I'm a web designer and I love creating stuff that solve problems and make your life easier. Feel free to follow
-              me to know more about me and my projects. Thanks for stopping by, wish you a great day!</p>
+            <form 
+              class="form-horizontal push-5-t" 
+              action="{{route('admin-updaterekening',$rekening->id)}}" 
+              method="post" 
+              >
+              @csrf
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <label for="contact1-firstname">Atas Nama</label>
+                  <input 
+                    class="form-control" 
+                    id="contact1-firstname" 
+                    name="atasnama" 
+                    placeholder="{{$rekening->atasnama}}" 
+                    value="{{$rekening->atasnama}}"
+                    type="text">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-12" for="contact1-email">Nomor Rekening</label>
+                <div class="col-sm-12">
+                  <div class="input-group">
+                    <input 
+                      class="form-control" 
+                      id="contact1-email" 
+                      name="no_rekening" 
+                      placeholder="{{$rekening->no_rekening}}" 
+                      type="text"
+                      value="{{$rekening->no_rekening}}"
+                      >
+                    <span class="input-group-addon">
+                      <i class="si si-grid "></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-12" for="contact1-subject">Jenis Rekening</label>
+                <div class="col-sm-5">
+                  <div class="form-control">{{$rekening->jenis_rekening}}</div>
+                </div>
+                <div class="col-sm-1">
+                  <div 
+                    class="btn" 
+                    data-toggle="tooltip" 
+                    data-placement="bottom" 
+                    title="" 
+                    data-original-title="ganti tipe rekening">
+                      <i class="fa fa-arrow-right"></i>
+                  </div>
+                </div>
+                <div class="col-sm-5 pull-right">
+                  <select 
+                    class="form-control" 
+                    id="contact1-subject" 
+                    name="jenis_rekening"
+                    size="1">
+                    <option value="{{$rekening->jenis_rekening}}">...</option>
+                    <option value="a">BNI</option>
+                    <option value="b">BRI</option>
+                    <option value="c">MANDIRI</option>
+                    <option value="d">BPD</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <div class="col-sm-12 text-right">
+                  <button class="btn btn-sm btn-info" type="submit">
+                      <i class="fa fa-save"></i> Update</button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
-        <!-- END About -->
 
         <!-- Followers -->
         <div class="block block-opt-refresh-icon6">
@@ -547,7 +619,7 @@
                 </div>
               </div>
               <div class="form-group">
-                <div class="col-xs-12">
+                <div class="col-sm-12">
                   <button class="btn btn-sm btn-info" type="submit">
                     <i class="si si-refresh push-5-r"></i> Update</button>
                 </div>
@@ -602,11 +674,11 @@
 </script>
 @elseif(Session('update-sukses'))
 <script>
-    swal({
-      title: "Berhasil!",
-      text: "profile sudah diperbarui!",
-      icon: "success",
-      button: "ok!",
-    });
-  </script>
+  swal({
+    title: "Berhasil!",
+    text: "profile sudah diperbarui!",
+    icon: "success",
+    button: "ok!",
+  });
+</script>
 @endif @endsection

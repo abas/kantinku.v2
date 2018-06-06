@@ -17,9 +17,9 @@ class Rekening extends Model
         'id_user','id'
     ];
 
-    public static function getAll($id_user)
+    public static function getByIDUser($id_user)
     {
-        return Rekening::where('id_user',$id_user)->get()->first();
+        return Rekening::where('id_user',$id_user);
     }
 
 }

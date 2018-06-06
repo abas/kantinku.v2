@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Menu;
 
 class Pesanan extends Model
 {
@@ -63,5 +64,10 @@ class Pesanan extends Model
         if($pesanan->update()){
             return true;
         }return false;
+    }
+
+    public static function getMenuName($id_menu)
+    {
+        return Menu::find($id_menu)->nama_menu;
     }
 }
