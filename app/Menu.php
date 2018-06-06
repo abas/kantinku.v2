@@ -86,4 +86,9 @@ class Menu extends Model
         );
     }
 
+    public static function menuBaruByIDUser($id_user)
+    {
+        return Menu::where('id_user',$id_user)->orderBy('id','desc');
+    }
+
 }

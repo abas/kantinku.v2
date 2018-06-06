@@ -328,39 +328,46 @@
               </li>
             </ul>
             <h3 class="block-title">
-              <i class="fa fa-newspaper-o"></i> Updates</h3>
+              <i class="glyphicon glyphicon-apple"></i> Menu Terbaru</h3>
           </div>
           <div class="block-content">
             <!-- Facebook Notification -->
+            @if($menu_baru != null)
             <div class="block block-transparent pull-r-l">
               <div class="block-header bg-gray-lighter">
                 <ul class="block-options">
                   <li>
                     <span>
-                      <em class="text-muted">3 hrs ago</em>
+                      <em class="text-muted">{{$menu_baru->updated_at}}</em>
                     </span>
                   </li>
                   <li>
                     <span>
-                      <i class="fa fa-facebook text-primary"></i>
+                      <i class="glyphicon glyphicon-apple"></i>
                     </span>
                   </li>
                 </ul>
-                <h3 class="block-title">+ 290 Page Likes</h3>
+                <h3 class="block-title">+ 
+                  <a href="#" data-toggle="modal" data-target="#detail_menu{{$menu_baru->id}}">{{$menu_baru->nama_menu}}</a>
+                  | IDR. {{$menu_baru->harga_menu/1000}}K
+                </h3>
               </div>
               <div class="block-content">
-                <p class="font-s13">This is great, keep it up!</p>
+                <img src="{{asset('uploads/images/menu/').$menu_baru->image_menu}}" alt="">
+              </div>
+              <div class="block-content">
+                <p class="font-s13">{{$menu_baru->deskripsi_menu}}</p>
               </div>
             </div>
             <!-- END Facebook Notification -->
-
+            @endif
             <!-- Generic Notification -->
             <div class="block block-transparent pull-r-l">
               <div class="block-header bg-gray-lighter">
                 <ul class="block-options">
                   <li>
                     <span>
-                      <em class="text-muted">4 hrs ago</em>
+                      <em class="text-muted">created_at</em>
                     </span>
                   </li>
                   <li>
@@ -582,7 +589,8 @@
   </div>
   <!-- END Page Content -->
 </main>
-<!-- Pop In Modal -->
+
+<!-- EDIT PROFILE MODAL -->
 <div class="modal fade" id="modal-popin" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-dialog-popin">
     <div class="modal-content">
@@ -636,7 +644,66 @@
     </div>
   </div>
 </div>
-<!-- END Pop In Modal -->
+<!-- END UPDATE PROFILE MODAL -->
+
+<!-- EDIT PROFILE MODAL -->
+@if($menu_baru != null)
+<div class="modal fade" id="detail_menu{{$menu_baru->id}}" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-popin">
+    <div class="modal-content">
+      <div class="block block-themed block-transparent remove-margin-b">
+        <div class="block-header bg-primary-dark">
+          <ul class="block-options">
+            <li>
+              <button data-dismiss="modal" type="button">
+                <i class="si si-close"></i>
+              </button>
+            </li>
+          </ul>
+          <h3 class="block-title">Update Profile</h3>
+        </div>
+        <div class="block-content">
+          <div class="block-content">
+            <form class="form-horizontal" action="{{route('admin-updateprofile')}}" method="post" enctype="multipart/form-data">
+              @csrf
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <label for="username">Nama Pengguna</label>
+                  <input class="form-control" name="name" placeholder="nama saat ini : {{$user->name}}" type="text" value="{{$user->name}}">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <img class="img-responsive" src="{{asset('uploads/images/user/').'/'.$user->pprofil}}" alt="{{$user->pprofile}}">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <label for="pprofile">Foto Profil</label>
+                  <input class="" name="pprofil" type="file" value="jsbjgvj">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <button class="btn btn-sm btn-info" type="submit">
+                    <i class="si si-refresh push-5-r"></i> Update</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="modal-footer">
+        <button class="btn btn-sm btn-default" type="button" data-dismiss="modal">Close</button>
+        <button class="btn btn-sm btn-primary" type="button" data-dismiss="modal">
+          <i class="fa fa-check"></i> Ok</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+@endif
+<!-- END UPDATE PROFILE MODAL -->
+
 @endsection @section('_script')
 <!-- Page JS Plugins -->
 <script src="assets/js/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
@@ -681,4 +748,14 @@
     button: "ok!",
   });
 </script>
-@endif @endsection
+@elseif(Session('rek-update-sukses'))
+<script>
+  swal({
+    title: "Berhasil!",
+    text: "Rekening sudah diperbarui!",
+    icon: "success",
+    button: "ok!",
+  });
+</script>
+@endif
+@endsection

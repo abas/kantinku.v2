@@ -32,23 +32,33 @@
                 action="{{route('register')}}" 
                 method="POST">
                 @csrf
-                @if($errors)
-                {{$errors}}
+                @if(Session('errors'))
+                {{-- {{$errors}} --}}
+                @else
                 @endif
                 <div class="form-group">
-                  <div class="col-xs-12">
+                  <div class="
+                        col-xs-12
+                        {{$errors->has('name')?' has-error':''}}
+                      ">
                     <div class="form-material form-material-success">
                       <input 
                         class="form-control" 
                         type="text" 
                         id="register-username" 
                         name="name" placeholder="masukkan nama anda..">
+                        @if($errors->has('name'))
+                          <div class="help-block text-right">{{$errors->first('name')}}</div>
+                        @endif
                       <label for="register-username">Nama</label>
                     </div>
                   </div>
                 </div>
                 <div class="form-group">
-                  <div class="col-xs-12">
+                  <div class="
+                      col-xs-12
+                      {{$errors->has('email')?' has-error':''}}
+                      ">
                     <div class="form-material form-material-success">
                       <input 
                       class="form-control" 
@@ -56,12 +66,18 @@
                       id="register-email" 
                       name="email" 
                       placeholder="masukkan email aktif anda..">
+                      @if($errors->has('email'))
+                        <div class="help-block text-right">{{$errors->first('email')}}</div>
+                      @endif
                       <label for="register-email">Email</label>
                     </div>
                   </div>
                 </div>
                 <div class="form-group">
-                  <div class="col-xs-12">
+                  <div class="
+                    col-xs-12
+                    {{$errors->has('password')?' has-error':''}}
+                    ">
                     <div class="form-material form-material-success">
                       <input 
                         class="form-control" 
@@ -69,12 +85,18 @@
                         id="register-password" 
                         name="password" 
                         placeholder="masukkan password akun anda">
+                        @if($errors->has('password'))
+                          <div class="help-block text-right">{{$errors->first('password')}}</div>
+                        @endif
                       <label for="register-password">Kata Sandi</label>
                     </div>
                   </div>
                 </div>
                 <div class="form-group">
-                  <div class="col-xs-12">
+                  <div class="
+                    col-xs-12
+                    {{$errors->has('password_confirmation')?' has-error':''}}
+                    ">
                     <div class="form-material form-material-success">
                       <input 
                         class="form-control" 
@@ -82,14 +104,23 @@
                         id="register-password2" 
                         name="password_confirmation" 
                         placeholder="..konfirmasi password">
+                        @if($errors->has('password_confirmation'))
+                          <div class="help-block text-right">{{$errors->first('password_confirmation')}}</div>
+                        @endif
                       <label for="register-password2">Ulangi Kata Sandi</label>
                     </div>
                   </div>
                 </div>
                 <div class="form-group">
-                  <div class="col-xs-7 col-sm-8">
+                  <div class="
+                    col-xs-7 col-sm-8
+                    {{$errors->has('register-terms')?' has-error':''}}
+                    ">
                     <label class="css-input switch switch-sm switch-success">
                       <input type="checkbox" id="register-terms" name="register-terms">
+                      {{-- @if($errors->has('password_confirmation'))
+                        <div class="help-block text-right">{{$errors->first('register-terms')}}</div>
+                      @endif --}}
                       <span></span> setujui peraturan
                     </label>
                   </div>

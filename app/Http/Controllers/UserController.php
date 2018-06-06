@@ -16,12 +16,16 @@ class UserController extends Controller
         $user = User::find(Auth::user()->id);
         $makanans = Menu::makanansWhereID($user->id)->get();
         $minumans = Menu::minumansWhereID($user->id)->get();
+        $menu_baru = Menu::menuBaruByIDUser($user->id)->get()->first();
+        // return $menu_baru->id;
+
         $pesanans = Pesanan::pesananByIdUser($user->id)->get();
         $transaksi_selesai = Pesanan::pesananIsDoneWithIDUser($user->id)->get();
         $rekening = Rekening::where('id_user',$user->id)->get()->first();
         // return $transaksi_selesai;
         return view('admin.profile',compact(
-            'user','makanans','minumans','pesanans','transaksi_selesai','rekening'
+            'user','makanans','minumans','pesanans',
+            'transaksi_selesai','rekening','menu_baru'
         ));
     }    
 
@@ -54,8 +58,10 @@ class UserController extends Controller
             $pprofil = $image_file->getClientOriginalName();
             
             $uploaded = $image_file->move(public_path('uploads/images/user/'),$pprofil);
-            if($uploaded){        
-                unlink(public_path('uploads/images/user/').$user->pprofil);
+            if($uploaded){
+                if($user->profile != null){
+                    unlink(public_path('uploads/images/user/').$user->pprofil);
+                }        
                 $user->pprofil = $pprofil;
                 Session::flash('upload-sukses',true);
             }else{
