@@ -200,10 +200,15 @@ class MenuController extends Controller
         }
         $menu = Menu::find($id_menu);
         $menu->stock_menu += $r->plus_menu;
-        if($menu->update()){
-            Session::flash('menu-updated');
-            return redirect()->back();
+        $updatePlus = Menu::updatePlus($menu->id,$r->plus_menu);
+        if($updatePlus){
+            if($menu->update()){
+                Session::flash('menu-updated');
+                return redirect()->back();
+            }
         }
+        Session::flash('menu-notupdate',true);
+        return redirect()->back();
     }
 
     /**

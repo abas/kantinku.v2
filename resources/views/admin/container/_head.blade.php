@@ -5,6 +5,6 @@
 <html class="no-focus" lang="en">
 <!--<![endif]-->
 <head>
-    @include('container.asset._metadata'); 
+    @include('container.asset._metadata')
     @include('container._style')
 </head>

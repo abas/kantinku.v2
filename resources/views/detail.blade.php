@@ -241,4 +241,16 @@
     }
   }
 </script>
+@if(Session('stock-limit') || $menu->stock_menu == 0)
+<script>
+swal({
+  title: "Maaf!",
+  text: "stock yang anda inginkan tidak tersedia!",
+  icon: "warning",
+  button: "ok!",
+}).then(()=>{
+  window.location = '/'
+})
+</script>
+@endif
 @endsection

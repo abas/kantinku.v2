@@ -4,26 +4,26 @@
   <!-- Page Content -->
   <div class="content content-narrow">
     <!-- Simple Wizards -->
-    <h2 class="content-heading">Daftar Pesanan</h2>
     <div class="row">
-    <div class="col-sm-12">
+      @if($pesanans->count() > 0) 
+      <div class="col-sm-12">
         <div class="col-sm-12 text-right">
           {{$pesanans->render()}}
         </div>
         <!-- Hover Table -->
+        <h2 class="content-heading">Daftar Pesanan</h2>
         <div class="block">
           <div class="block-content">
-            <table class="table table-hover">
+            <table class="table table-hover table-responsive">
               <thead>
                 <tr>
                   <th class="text-center" style="width: 50px;">#</th>
-                  <th class="hidden-xs">Menu</th>
-                  <th>Antar/Ambil</th>
-                  <th class="hidden-xs">Atasnama</th>
+                  <th>Menu</th>
+                  <th></th>
+                  <th>Atasnama</th>
                   <th class="hidden-xs">Kontak</th>
-                  <th class="hidden-xs">Jumlah</th>
+                  <th>Jumlah</th>
                   <th class="hidden-xs">Alamat</th>
-                  <th class="text-center" style="width: 100px;">Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -33,21 +33,11 @@
                   <td>{{$pesanan->getMenuName($pesanan->id_menu)}}</td>
                   <td style="text-transform:capitalize">{{$pesanan->metode_pemesanan}}</td>
                   <td>{{$pesanan->nama_pemesan}}</td>
-                  <td>{{$pesanan->kontak}}</td>
+                  <td class="hidden-xs">{{$pesanan->kontak}}</td>
                   <td class="hidden-xs">
                     <span class="label label-danger">{{$pesanan->jumlah_pesanan}}</span>
                   </td>
-                  <td>{{$pesanan->alamat}}</td>
-                  <td class="text-center">
-                    <div class="btn-group">
-                      <a class="btn btn-xs btn-default" href="#">
-                        <i class="fa fa-pencil"></i>
-                      </a>
-                      <a class="btn btn-xs btn-default" href="#">
-                        <i class="fa fa-times"></i>
-                      </a>
-                    </div>
-                  </td>
+                  <td class="hidden-xs">{{$pesanan->alamat}}</td>
                 </tr>
                 @endforeach
               </tbody>
@@ -56,7 +46,6 @@
         </div>
         <!-- END Hover Table -->
       </div>
-      @if($pesanans->count() > 0)
       @foreach($pesanans as $pesanan)
       <div class="col-lg-6">
         <!-- Simple Classic Wizard (.js-wizard-simple class is initialized in js/pages/base_forms_wizard.js) -->
@@ -174,8 +163,11 @@
                   <button class="wizard-next btn btn-default" type="button">Next
                     <i class="fa fa-arrow-right"></i>
                   </button>
-                  <button class="wizard-finish btn btn-primary" type="submit">
-                    <i class="fa fa-check"></i> Done</button>
+                  <a class="wizard-finish btn btn-primary" href="{{route('admin-makeselesai-pesanan',$pesanan->id)}}
+                  ">
+                    @if($pesanan->is_selesai == false)
+                    <i class="fa fa-check"></i> Done</a>
+                  @endif
                 </div>
               </div>
             </div>
@@ -199,7 +191,59 @@
       </div>
       @endif
     </div>
-    <!-- END Page Content -->
+
+    <h2 class="content-heading">Daftar Pesanan Selesai</h2>
+          
+    {{-- pesanan selesai --}}
+    <div class="col-sm-12">
+      <center>
+        {{$pesanans->render()}}
+      </center>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="col-sm-12 text-right">
+          {{$pesanans_selesai->render()}}
+        </div>
+        <!-- Hover Table -->
+        <div class="block">
+          <div class="block-content">
+            <table class="table table-hover table-responsive">
+              <thead>
+                <tr>
+                  {{-- <th class="text-center" style="width: 50px;">#</th> --}}
+                  <th>Menu</th>
+                  <th></th>
+                  <th>Atasnama</th>
+                  <th class="hidden-xs">Kontak</th>
+                  <th>Jumlah</th>
+                  <th class="hidden-xs">Alamat</th>
+                </tr>
+              </thead>
+              <tbody>
+                @php $i=1; @endphp @foreach($pesanans_selesai as $pesananS)
+                <tr>
+                  {{-- <td class="text-center">{{$i++}}</td> --}}
+                  <td>{{$pesananS->getMenuName($pesananS->id_menu)}}</td>
+                  <td style="text-transform:capitalize">{{$pesananS->metode_pemesanan}}</td>
+                  <td>{{$pesananS->nama_pemesan}}</td>
+                  <td class="hidden-xs">{{$pesananS->kontak}}</td>
+                  <td>
+                    <span class="label label-danger">{{$pesananS->jumlah_pesanan}}</span>
+                  </td>
+                  <td class="hidden-xs">{{$pesananS->alamat}}</td>
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- END Hover Table -->
+      </div>
+
+    </div>
+  </div>
+  <!-- END Page Content -->
   </div>
 </main>
 <!-- END Main Container -->
@@ -210,4 +254,25 @@
 
 <!-- Page JS Code -->
 <script src="assets/js/pages/base_forms_wizard.js"></script>
+
+{{-- alert --}}
+@if(Session('pesanan-makedone-sukses'))
+<script>
+swal({
+  title: "Mantab!",
+  text: "pesanan sudah selesai!",
+  icon: "success",
+  button: "ok!",
+});
+</script>
+@elseif(Session('pesanan-makedone-gagal'))
+<script>
+    swal({
+    title: "Maaf!",
+    text: "error menyelesaikan pesanan!",
+    icon: "warning",
+    button: "ok!",
+  });
+</script>
+@endif
 @endsection

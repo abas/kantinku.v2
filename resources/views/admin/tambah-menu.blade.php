@@ -8,8 +8,8 @@
         <h1 class="page-heading">
           Tambah Menu
           <small>Tambah menu
-            <b>minuman</b> atau
-            <b>inuman</b> yang ingin anda jual.</small>
+            <b>Makanan</b> atau
+            <b>Minuman</b> yang ingin anda jual.</small>
         </h1>
       </div>
       <div class="col-sm-4 text-right hidden-xs">

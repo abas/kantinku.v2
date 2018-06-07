@@ -17,11 +17,14 @@ class AdminController extends Controller
             ['id_user','=',Auth::user()->id],
             ['is_selesai','=',false]
         ])->paginate(4);
-        
+        $pesanans_selesai = Pesanan::where([
+            ['id_user','=',Auth::user()->id],
+            ['is_selesai','=',true]
+        ])->paginate(10);
         $menu = new Menu;
         $rekening = new Rekening;
         return view('admin.dashboard',compact(
-            'user','pesanans','menu','rekening'
+            'user','pesanans','menu','rekening','pesanans_selesai'
         ));
         return [
             $user,

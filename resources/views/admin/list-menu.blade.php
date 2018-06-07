@@ -17,12 +17,12 @@
         <!-- Hover Table -->
         <div class="block">
           <div class="block-content">
-            <table class="table table-hover">
+            <table class="table table-hover table-responsive">
               <thead>
                 <tr>
                   <th class="text-center" style="width: 50px;">#</th>
                   <th>Menu</th>
-                  <th>Deskripsi</th>
+                  <th class="hidden-xs">Deskripsi</th>
                   <th class="hidden-xs">Harga</th>
                   <th class="hidden-xs">Tipe</th>
                   <th>Stock</th>
@@ -34,9 +34,9 @@
                 <tr>
                   <td class="text-center">{{$i++}}</td>
                   <td>{{$menu->nama_menu}}</td>
-                  <td>{{$menu->deskripsi_menu}}</td>
-                  <td>{{$menu->harga_menu}}</td>
-                  <td>{{$menu->tipe_menu}}</td>
+                  <td class="hidden-xs">{{$menu->deskripsi_menu}}</td>
+                  <td class="hidden-xs">{{$menu->harga_menu}}</td>
+                  <td class="hidden-xs">{{$menu->tipe_menu}}</td>
                   <td>
                     <span class="label label-info">{{$menu->stock_menu}}</span>
                   </td>
@@ -167,7 +167,7 @@
       @endforeach @else
       <div class="col-sm-12">
         <div class="alert alert-danger">
-          anda belum membuat menu
+          anda belum membuat menu atau stock anda sudah habis
         </div>
       </div>
       @endif

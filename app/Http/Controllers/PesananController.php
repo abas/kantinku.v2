@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Auth,Validator;
+use Auth,Validator,Session;
 
 use App\Menu,App\Pesanan,App\User,App\Rekening;
 
@@ -17,6 +17,10 @@ class PesananController extends Controller
     public function pesan(Request $request,$id_menu)
     {
         $menu = Menu::find($id_menu);
+        if($request->jumlah_pesanan>$menu->stock_menu){
+            Session::flash('stock-limit',true);
+            return redirect()->back();
+        }
         $antar = $request->metode_pemesanan;
         $validator = Validator::make($request->all(), [
             'metode_pemesanan'  => 'required',
@@ -80,5 +84,16 @@ class PesananController extends Controller
         return view('pesanan',compact('pesanan','menu'));
         return $pesanan;
         
+    }
+
+    public function makeSelesai($id_pesanan)
+    {
+        if(Pesanan::makeSelesai($id_pesanan)){
+            Session::flash('pesanan-makedone-sukses');
+
+        }else{
+            Session::flash('pesanan-makedone-gagal');
+        }
+        return redirect()->back();
     }
 }
