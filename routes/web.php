@@ -45,6 +45,7 @@ Route::group([
         Route::get('/tambahmenu','AdminController@tambahMenu')->middleware('hasRek')->name('admin-tambahmenu');
         getUrl('/listmenu','MenuController@listMenu','admin-listmenu');
         getUrl('/updatemenu{id_menu}','MenuController@edit','admin-editmenu');
+        getUrl('/make{id_pesanan}selesai','PesananController@makeSelesai','admin-makeselesai-pesanan');
         getUrl('/deletemenu{id}','MenuController@delete','admin-deletemenu');
     });
 
