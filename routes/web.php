@@ -41,7 +41,8 @@ Route::group([
     });
 
     Route::group(['prefix'=>'get'],function(){
-        getUrl('/tambahmenu','AdminController@tambahMenu','admin-tambahmenu');
+        // getUrl('/tambahmenu','AdminController@tambahMenu','admin-tambahmenu');
+        Route::get('/tambahmenu','AdminController@tambahMenu')->middleware('hasRek')->name('admin-tambahmenu');
         getUrl('/listmenu','MenuController@listMenu','admin-listmenu');
         getUrl('/updatemenu{id_menu}','MenuController@edit','admin-editmenu');
         getUrl('/deletemenu{id}','MenuController@delete','admin-deletemenu');
