@@ -99,10 +99,16 @@
                   <!-- Images -->
                   <div class="row js-gallery">
                     <div class="col-xs-12 push-10">
-                      <a class="img-link" href="{{asset('assets/img/various/ecom_product6.png')}}">
+                      <a class="img-link" href="
+                        @if($menu->image_menu == null)
+                          asset('assets/img/various/ecom_product6.png')
+                        @else
+                          asset('uploads/images/menu/').'/'.$menu->image_menu
+                        @endif
+                        }}">
                         <div class="block-content block-content-full text-center bg-flat ribbon ribbon-bookmark ribbon-crystal">
                           <div class="ribbon-box font-w600">
-                            <b>Rp {{$harga}}</b>
+                            <b>Rp {{$menu->harga_menu}}</b>
                           </div>
                         </div>
                         <img class="img-responsive" src="{{asset('assets/img/food/pizza.jpg')}}" alt="">
@@ -117,9 +123,9 @@
                           jumlah pesanan : <b>{{$pesanan->jumlah_pesanan}}</b>
                         </span><br>
                         <span>
-                          harga menu /porsi : <b>{{$harga}}</b>
+                          harga menu /porsi : <b>{{$menu->harga_menu}}</b>
                         </span>
-                      <h5>total pembayaran Rp. <span>{{$pesanan->jumlah_pesanan * $harga}}</span></h5>
+                      <h5>total pembayaran Rp. <span>{{$pesanan->jumlah_pesanan * $menu->harga_menu}}</span></h5>
                     </div>
                   </div>
                   <!-- END Images -->

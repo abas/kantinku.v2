@@ -76,8 +76,8 @@ class PesananController extends Controller
             $pesanan->jenis_rekening = $rekening->jenis_rekening;
         }
 
-        $harga = Menu::find($pesanan->id_menu)->harga_menu;
-        return view('pesanan',compact('pesanan','harga'));
+        $menu = Menu::find($pesanan->id_menu);
+        return view('pesanan',compact('pesanan','menu'));
         return $pesanan;
         
     }
