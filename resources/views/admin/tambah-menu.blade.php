@@ -60,17 +60,31 @@
               <!-- Step 1 -->
               <div class="tab-pane push-30-t push-50 active" id="simple-classic-step2-makanan">
                 <div class="form-group">
-                  <div class="col-sm-10 col-sm-offset-1">
+                  <div class="
+                    col-sm-10 col-sm-offset-1
+                    {{session('makanan')&&$errors->has('nama_menu') ? ' has-error' : ''}}
+                    ">
                     <label for="val-digits">Nama Menu
                       <span class="text-danger">*</span>
                     </label>
                     <input class="form-control" type="text" id="val-digits" name="nama_menu" placeholder="nama menu ?">
+                    @if(session('makanan')&&$errors->has('nama_menu'))
+                      <div class="help-block text-right">
+                        {{$errors->first('nama_menu')}}
+                      </div>
+                    @endif
                   </div>
                 </div>
                 <div class="form-group">
-                  <div class="col-sm-10 col-sm-offset-1">
+                  <div class="
+                    col-sm-10 col-sm-offset-1
+                    {{session('makanan')&&$errors->has('deskripsi_menu') ? ' has-error':''}}
+                    ">
                     <label for="simple-classic-details">Details</label>
                     <textarea class="form-control" id="simple-classic-details" name="deskripsi_menu" rows="9" placeholder="Deskripsi menu"></textarea>
+                    @if(session('makanan')&&$errors->has('deskripsi_menu'))  
+                      <div class="help-block text-right">{{$errors->first('deskripsi_menu')}}</div>
+                    @endif
                   </div>
                 </div>
               </div>
@@ -79,24 +93,44 @@
               <!-- Step 2 -->
               <div class="tab-pane push-30-t push-50" id="simple-classic-step1-makanan">
                 <div class="form-group">
-                  <div class="col-sm-10 col-sm-offset-1">
+                  <div class="
+                    col-sm-10 col-sm-offset-1
+                    {{Session('makanan') && $errors->has('harga_menu') ? 
+                        ' has-error':'' 
+                    }}
+                    ">
                     <label for="simple-classic-city">Harga Makanan</label>
                     <input class="form-control" type="number" id="simple-classic-city" name="harga_menu" min="100" max="1000000" placeholder="Harga Makanan ?">
+                    @if( Session('makanan')&&$errors->has('harga_menu'))
+                      <div class="help-block text-right">{{$errors->first('harga_menu')}}</div>
+                    @endif
                   </div>
                 </div>
                 <div class="form-group">
-                  <div class="col-sm-10 col-sm-offset-1">
+                  <div class="
+                    col-sm-10 col-sm-offset-1
+                    {{Session('makanan') ? ($errors->has('stock_menu') ? ' has-error':'') : ''}}
+                    ">
                     <label for="val-digits">Stok Makanan
                       <span class="text-danger">*</span>
                     </label>
                     <input class="form-control" type="number" id="val-digits" name="stock_menu" placeholder="ex : 9">
+                    @if(Session('makanan')&&$errors->has('stock_menu'))
+                      <div class="help-block text-right">{{$errors->first('stock_menu')}}</div>
+                    @endif
                   </div>
                 </div>
                 <div class="form-group">
-                  <div class="col-sm-10 col-sm-offset-1">
+                  <div class="
+                    col-sm-10 col-sm-offset-1
+                    {{Session('makanan') ? ($errors->has('image_menu') ? ' has-error':'') : ''}}
+                    ">
                     <label class="val-digits" for="foto-makanan">Foto Makanan</label>
                     <div class="col-xs-12">
                       <input type="file" id="foto-makanan" name="image_menu">
+                      @if(Session('makanan')&&$errors->has('image_menu'))
+                        <div class="help-block text-right">{{$errors->first('image_menu')}}</div>
+                      @endif  
                     </div>
                   </div>
                 </div>
@@ -152,17 +186,29 @@
               <!-- Step 1 -->
               <div class="tab-pane push-30-t push-50 active" id="simple-classic-step1-minuman">
                 <div class="form-group">
-                  <div class="col-sm-10 col-sm-offset-1">
+                  <div class="
+                    col-sm-10 col-sm-offset-1
+                    {{session('minuman')&&$errors->has('nama_menu')?' has-error':''}}
+                    ">
                     <label for="val-digits">Nama Menu
                       <span class="text-danger">*</span>
                     </label>
                     <input class="form-control" type="text" id="val-digits" name="nama_menu" placeholder="nama menu ?">
+                    @if(session('minuman')&&$errors->has('nama_menu'))
+                      <div class="help-block text-right">{{$errors->first('nama_menu')}}</div>
+                    @endif
                   </div>
                 </div>
                 <div class="form-group">
-                  <div class="col-sm-10 col-sm-offset-1">
+                  <div class="
+                    col-sm-10 col-sm-offset-1
+                    {{session('minuman')&&$errors->has('deskripsi_menu')?' has-error':''}}
+                    ">
                     <label for="simple-classic-details">Details</label>
                     <textarea class="form-control" id="simple-classic-details" name="deskripsi_menu" rows="9" placeholder="Deskripsi menu"></textarea>
+                    @if(session('minuman')&&$errors->has('deskripsi_menu')) 
+                      <div class="help-block text-right">{{$errors->first('deskripsi_menu')}}</div>
+                    @endif
                   </div>
                 </div>
               </div>
@@ -171,24 +217,42 @@
               <!-- Step 2 -->
               <div class="tab-pane push-30-t push-50" id="simple-classic-step2-minuman">
                 <div class="form-group">
-                  <div class="col-sm-10 col-sm-offset-1">
+                  <div class="
+                    col-sm-10 col-sm-offset-1
+                    {{session('minuman')&&$errors->has('harga_menu')?' has-error':''}}
+                    ">
                     <label for="simple-classic-city">Harga Minuman</label>
                     <input class="form-control" type="number" id="simple-classic-city" name="harga_menu" min="100" max="1000000" placeholder="Harga Minuman ?">
+                    @if(session('minuman')&&$errors->has('harga_menu'))
+                      <div class="help-block text-right">{{$errors->first('harga_menu')}}</div>
+                    @endif  
                   </div>
                 </div>
                 <div class="form-group">
-                  <div class="col-sm-10 col-sm-offset-1">
+                  <div class="
+                    col-sm-10 col-sm-offset-1
+                    {{session('minuman')&&$errors->has('stock_menu')?' has-error':''}}
+                    ">
                     <label for="val-digits">Stok Minuman
                       <span class="text-danger">*</span>
                     </label>
                     <input class="form-control" type="number" id="val-digits" name="stock_menu" placeholder="ex : 9">
+                    @if(session('minuman')&&$errors->has('stock_menu'))
+                      <div class="help-block text-right">{{$errors->first('stock_menu')}}</div>
+                    @endif  
                   </div>
                 </div>
                 <div class="form-group">
-                  <div class="col-sm-10 col-sm-offset-1">
+                  <div class="
+                    col-sm-10 col-sm-offset-1
+                    {{session('minuman')&&$errors->has('image_menu') ? ' has-error':''}}
+                    ">
                     <label class="val-digits" for="foto-Minuman">Foto Minuman</label>
                     <div class="col-xs-12">
                       <input type="file" id="foto-Minuman" name="image_menu">
+                      @if(session('minuman')&&$errors->has('image_menu'))
+                        <div class="help-block text-right">{{$errors->first('image_menu')}}</div>
+                      @endif
                     </div>
                   </div>
                 </div>

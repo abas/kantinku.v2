@@ -29,25 +29,37 @@
               method="post">
               @csrf
               <div class="form-group">
-                <div class="col-xs-12">
+                <div class="
+                  col-xs-12
+                  {{$errors->has('email')?' has-error':''}}
+                  ">
                   <div class="form-material form-material-primary floating">
                     <input 
                       class="form-control" 
                       type="text" 
                       id="login-username" 
                       name="email">
+                      @if($errors->has('email'))
+                        <div class="help-block text-right">{{$errors->first('email')}}</div>
+                      @endif
                     <label for="login-username">Username</label>
                   </div>
                 </div>
               </div>
               <div class="form-group">
-                <div class="col-xs-12">
+                <div class="
+                  col-xs-12
+                  {{$errors->has('password') ? ' has-error':''}}
+                  ">
                   <div class="form-material form-material-primary floating">
                     <input 
                       class="form-control" 
                       type="password" 
                       id="login-password" 
                       name="password">
+                      @if($errors->has('password'))
+                        <div class="help-block text-right">{{$errors->first('password')}}</div>
+                      @endif
                     <label for="login-password">Password</label>
                     <script>
                     </script>

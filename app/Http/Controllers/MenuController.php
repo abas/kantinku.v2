@@ -51,7 +51,13 @@ class MenuController extends Controller
         ]);
 
         if ($validator->fails()) {
+            if($r->tipe_menu == 'makanan'){
+                Session::flash('makanan',true);
+            }elseif($r->tipe_menu == 'minuman'){
+                Session::flash('minuman',true);
+            }
             return redirect()->back()
+                            ->with('err',true)
                             ->withErrors($validator)
                             ->withInput();
             // return $validator;
