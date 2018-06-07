@@ -18,12 +18,12 @@ class HasRekening
     public function handle($request, Closure $next)
     {
         $user = User::find(Auth::user()->id);
-        // dd($user);
-        $rekening = Rekening::where('id_user',$user->id)->get()->first();
+        $rekening = Rekening::where('id_user','=',$user->id)->get()->first();
+        // return $rekening;
         if(
-            $rekening->atasnama == 'null' &&
-            $rekening->no_rekening == 'null' &&
-            $rekening->jening_rekening == 'NULL'
+            $rekening->atasnama != 'null' &&
+            $rekening->no_rekening != 'null' &&
+            $rekening->jening_rekening != 'NULL'
         ){
             return $next($request);
         }

@@ -372,5 +372,15 @@
     button: "ok!",
   });
 </script>
+@elseif(Session('rekening-notset'))
+<script>
+  swal({
+    title: "Maaf!",
+    text: "anda harus mengupdate data rekening anda terlebih dahulu!",
+    icon: "error",
+    button: "ok!",
+  });
+</script>
+
 @endif
 @endsection
