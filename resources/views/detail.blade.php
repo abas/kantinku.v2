@@ -18,17 +18,28 @@
                   <!-- Images -->
                   <div class="row js-gallery">
                     <div class="col-xs-12 push-10">
-                      <a class="img-link" href="{{asset('assets/img/food/pizza.jpg')}}">
+                      <a 
+                        class="img-link" 
+                        href="{{
+                          $menu->image_menu != null ?
+                            asset('uploads/images/menu/'.$menu->image_menu) :
+                            asset('assets/img/food/pizza.jpg')
+                        }}"
+                        style="width: 100%">
                         <div class="block-content block-content-full text-center bg-flat ribbon ribbon-bookmark ribbon-crystal">
                           <div class="ribbon-box font-w600">
                             <b>Rp {{$menu->harga_menu}}</b>
                           </div>
                         </div>
-                        @if($menu->image_menu != null)
-                        <img class="img-responsive" src="{{asset('uploads/images/menu/'.$menu->image_menu)}}" alt="">
-                        @else
-                        <img class="img-responsive" src="{{asset('assets/img/food/pizza.jpg')}}" alt="">
-                        @endif
+                        <img 
+                          class="img-responsive" 
+                          src="{{
+                            $menu->image_menu != null ?
+                              asset('uploads/images/menu/'.$menu->image_menu) :
+                              asset('assets/img/food/pizza.jpg')
+                          }}"
+                          style="width: 100%"
+                          alt="">
                       </a>
                     </div>
                     <div class="col-xs-12">

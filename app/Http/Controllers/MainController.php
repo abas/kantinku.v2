@@ -14,8 +14,10 @@ class MainController extends Controller
      */
     public function index()
     {
-        $makanans = Menu::Makanans();
-        $minumans = Menu::Minumans();
+        $makanans = Menu::MakanansNotHabis()->paginate(3);
+
+        $minumans = Menu::MinumansNotHabis()->paginate(3);
+        
         return view('index',compact(
             'makanans','minumans'
         ));
@@ -27,7 +29,7 @@ class MainController extends Controller
      */
     public function makanans()
     {
-        $makanans = Menu::Makanans();
+        $makanans = Menu::MakanansNotHabis()->paginate(6);
         return view('makanans',compact('makanans'));
     }
 
@@ -36,7 +38,7 @@ class MainController extends Controller
      */
     public function minumans()
     {
-        $minumans = Menu::Minumans();
+        $minumans =Menu::MinumansNotHabis()->paginate(6);
         return view('minumans',compact('minumans'));
     }
 

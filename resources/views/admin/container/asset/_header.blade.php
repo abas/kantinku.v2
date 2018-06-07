@@ -3,9 +3,9 @@
     <!-- Header Navigation Left -->
     <ul class="nav-header">
 
-        <li class="hidden-xs hidden-sm pull-left">
+        <li class="pull-left">
             <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
-            <button class="btn btn-default" data-toggle="layout" data-action="sidebar_mini_toggle" type="button">
+            <button class="btn btn-default" data-toggle="layout" data-action="sidebar_toggle" type="button">
                 <i class="fa fa-ellipsis-v"></i>
             </button>
         </li>

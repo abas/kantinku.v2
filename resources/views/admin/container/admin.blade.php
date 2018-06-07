@@ -1,4 +1,5 @@
 @include('admin.container._head')
+
 <body>
     <!-- Page Container -->
     <div id="page-container" class="sidebar-l sidebar-o side-scroll header-navbar-fixed">

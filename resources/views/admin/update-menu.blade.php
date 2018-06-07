@@ -1,4 +1,7 @@
-@extends('admin.container.admin') @section('_style') @endsection @section('content')
+@extends('admin.container.admin') 
+@section('_style') 
+@endsection 
+@section('content')
 <!-- Main Container -->
 <main id="main-container">
   <!-- Side Content and Product -->
@@ -14,13 +17,28 @@
                   <!-- Images -->
                   <div class="row js-gallery">
                     <div class="col-xs-12 push-10">
-                      <a class="img-link" href="{{asset('assets/img/food/pizza.jpg')}}">
+                        <a 
+                        class="img-link" 
+                        href="{{
+                          $menu->image_menu != null ?
+                            asset('uploads/images/menu/'.$menu->image_menu) :
+                            asset('assets/img/food/pizza.jpg')
+                        }}"
+                        style="width: 100%">
                         <div class="block-content block-content-full text-center bg-flat ribbon ribbon-bookmark ribbon-crystal">
                           <div class="ribbon-box font-w600">
                             <b>Rp {{$menu->harga_menu}}</b>
                           </div>
                         </div>
-                        <img class="img-responsive" src="{{asset('assets/img/food/pizza.jpg')}}" alt="">
+                        <img 
+                          class="img-responsive" 
+                          src="{{
+                            $menu->image_menu != null ?
+                              asset('uploads/images/menu/'.$menu->image_menu) :
+                              asset('assets/img/food/pizza.jpg')
+                          }}"
+                          style="width: 100%"
+                          alt="">
                       </a>
                     </div>
                     <div class="col-sm-12">
@@ -158,9 +176,9 @@
 <!-- END Main Container -->
 @endsection @section('_script')
 <!-- Page JS Plugins -->
-<script src="assets/js/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
-<script src="assets/js/plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="{{asset('assets/js/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js')}}"></script>
+<script src="{{asset('assets/js/plugins/jquery-validation/jquery.validate.min.js')}}"></script>
 
 <!-- Page JS Code -->
-<script src="assets/js/pages/base_forms_wizard.js"></script>
+<script src="{{asset('assets/js/pages/base_forms_wizard.js')}}"></script>
 @endsection

@@ -172,6 +172,22 @@ class MenuController extends Controller
         return Redirect::back();
     }
 
+    /**
+     * kurangi menu
+     */
+    public function kurangi(Request $r,$id_menu)
+    {
+        if($r->min_menu == null){
+            Session::flash('menu-notupdate',true);
+            return redirect()->back();
+        }
+        $menu = Menu::find($id_menu);
+        $menu->stock_menu -= $r->min_menu;
+        if($menu->update()){
+            Session::flash('menu-updated');
+            return redirect()->back();
+        }
+    }
 
     /**
      * testing

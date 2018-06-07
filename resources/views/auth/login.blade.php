@@ -8,7 +8,7 @@
 <body class="bg-default">
 <main class="main">
   <!-- Login Content -->
-  <div class="bg-white pulldown" style="margin-top: -8%">
+  <div class="bg-white pulldown">
     <div class="content content-boxed overflow-hidden">
       <div class="row">
         <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
@@ -42,7 +42,7 @@
                       @if($errors->has('email'))
                         <div class="help-block text-right">{{$errors->first('email')}}</div>
                       @endif
-                    <label for="login-username">Username</label>
+                    <label for="login-username">Email</label>
                   </div>
                 </div>
               </div>

@@ -126,7 +126,7 @@
                   </div>
                   <div class="col-xs-5 col-sm-4">
                     <div class="font-s13 text-right push-5-t">
-                      <a href="login.html">sudah punya akun?</a>
+                      <a href="{{route('login')}}">sudah punya akun?</a>
                     </div>
                   </div>
                 </div>
