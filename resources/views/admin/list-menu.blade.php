@@ -48,13 +48,12 @@
                         </datalist>
                         <a
                           data-toggle="modal" data-target="#kurangi-menu{{$menu->id}}" 
-                          class="btn btn-xs btn-warning no-border">
+                          class="btn btn-xs btn-warning">
                           <i class="fa fa-minus"></i>
                         </a>
                         <a 
-                          data-toggle="modal" data-target="#kurangi-menu"
-                          class="btn btn-xs btn-success" 
-                          eval="{{route('admin-editmenu',$menu->id)}}">
+                          data-toggle="modal" data-target="#tambahi-menu{{$menu->id}}"
+                          class="btn btn-xs btn-success">
                           <i class="fa fa-plus"></i>
                         </a>
                         <a class="btn btn-xs btn-default" href="{{route('admin-editmenu',$menu->id)}}">
@@ -177,7 +176,7 @@
 </main>
 <!-- END Main -->
 @foreach($menus as $menu)
-<!-- EDIT PROFILE MODAL -->
+<!-- EDIT kurangi MODAL -->
 <div 
   id="kurangi-menu{{$menu->id}}" 
   class="modal fade" 
@@ -233,6 +232,62 @@
   </div>
 </div>
 <!-- END kurangi menu MODAL -->
+
+<!-- EDIT tambah MODAL -->
+<div 
+  id="tambahi-menu{{$menu->id}}" 
+  class="modal fade" 
+  tabindex="-1" 
+  role="dialog" 
+  aria-hidden="true"
+  style="margin-top: 17%"
+  >
+  <div class="modal-dialog modal-dialog-popin">
+    <div class="modal-content">
+      <div 
+      class="
+        col-sm-6 col-sm-offset-3
+        col-md-6 col-md-offset-3
+        col-lg-6 col-lg-offset-3
+        ">
+        <div class="block block-themed">
+          <div class="block-header bg-success">
+            <h3 class="block-title">Masukkan Jumlah</h3>
+          </div>
+          <div class="block-content">
+            <form
+              id="tambahi_menu"
+              class="form-horizontal" 
+              action="{{route('admin-tambahimenu',$menu->id)}}"
+              method="post">
+              @csrf
+              <div class="form-group">
+                <label class="col-xs-12" for="min_menu">ingin di tambah berapa banyak ?</label>
+                <div class="col-xs-12">
+                  <input 
+                    id="min_menu" 
+                    class="form-control" 
+                    name="plus_menu" 
+                    placeholder="saat ini : {{$menu->stock_menu}}" 
+                    type="number"
+                    min="0"
+                    >
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-xs-12">
+                  <button class="btn btn-sm btn-success" type="submit">
+                    <i class="fa fa-minus push-5-r"></i> submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END tambah menu MODAL -->
 @endforeach
 
 @endsection @section('_script')

@@ -177,12 +177,29 @@ class MenuController extends Controller
      */
     public function kurangi(Request $r,$id_menu)
     {
-        if($r->min_menu == null){
+        $menu = Menu::find($id_menu);
+        if($r->min_menu == null && $r->plus_menu > $menu->stock_menu){
+            Session::flash('menu-notupdate',true);
+            return redirect()->back();
+        }
+        $menu->stock_menu -= $r->min_menu;
+        if($menu->update()){
+            Session::flash('menu-updated');
+            return redirect()->back();
+        }
+    }
+
+    /**
+     * kurangi menu
+     */
+    public function tambahi(Request $r,$id_menu)
+    {
+        if($r->plus_menu == null){
             Session::flash('menu-notupdate',true);
             return redirect()->back();
         }
         $menu = Menu::find($id_menu);
-        $menu->stock_menu -= $r->min_menu;
+        $menu->stock_menu += $r->plus_menu;
         if($menu->update()){
             Session::flash('menu-updated');
             return redirect()->back();
