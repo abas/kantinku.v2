@@ -74,6 +74,15 @@ class Menu extends Model
         if($menu->update()) {
             return true;
         }return false;
+    }
+       
+    public static function makeAvail($id)
+    {
+        $menu = Menu::find($id);
+        $menu->is_habis = false;
+        if($menu->update()) {
+            return true;
+        }return false;
     }   
 
     public static function makanansWhereID($id_user)
@@ -97,4 +106,30 @@ class Menu extends Model
         return Menu::where('id_user',$id_user)->orderBy('id','desc');
     }
 
+    public static function updateMin($id,$val)
+    {
+        $menu = Menu::find($id);
+        if($val>$menu->stock_menu){
+            return false;
+        }
+        $menu->stock_menu -= $val;
+        if($menu->stock_menu == 0){
+            Menu::makeHabis($menu->id);
+        }
+        if($menu->update()){
+            return true;
+        }return false;
+    }
+
+    public static function updatePlus($id,$val)
+    {
+        $menu = Menu::find($id);
+        $menu->stock_menu += $val;
+        if($menu->stock_menu > 0){
+            $menu->is_habis = false;
+        }
+        if($menu->update()){
+            return true;
+        }return false;
+    }
 }
