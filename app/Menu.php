@@ -42,14 +42,20 @@ class Menu extends Model
         return Menu::find($id)->id_user;
     }
 
-    public static function Makanans()
+    public static function MakanansNotHabis()
     {
-        return Menu::where('tipe_menu','makanan')->orderBy('id','desc')->paginate(6);
+        return Menu::where([
+            ['tipe_menu','=','makanan'],
+            ['is_habis','=',false]
+        ])->orderBy('id','desc');
     }
 
-    public static function Minumans()
+    public static function MinumansNotHabis()
     {
-        return Menu::where('tipe_menu','minuman')->orderBy('id','desc')->paginate(6);
+        return Menu::where([
+            ['tipe_menu','=','minuman'],
+            ['is_habis','=',false]
+        ])->orderBy('id','desc');
     }
 
     public static function updateStock($id,$minus)
