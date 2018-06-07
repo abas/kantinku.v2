@@ -13,7 +13,11 @@ class AdminController extends Controller
     public function index()
     {
         $user = User::find(Auth::user()->id);
-        $pesanans = Pesanan::where('id_user',Auth::user()->id)->paginate(4);
+        $pesanans = Pesanan::where([
+            ['id_user','=',Auth::user()->id],
+            ['is_selesai','=',false]
+        ])->paginate(4);
+        
         $menu = new Menu;
         $rekening = new Rekening;
         return view('admin.dashboard',compact(
