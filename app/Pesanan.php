@@ -28,7 +28,7 @@ class Pesanan extends Model
 
     public static function pesananByIdUser($id_user)
     {
-        return Pesanan::where('id_user',$id_user);
+        return Pesanan::where([['id_user',$id_user],['is_selesai',false]]);
     }
 
     public static function pesananIsDoneWithIDUser($id_user)
@@ -43,8 +43,10 @@ class Pesanan extends Model
     {
         $pesanan = Pesanan::find($id);
         $pesanan->is_selesai = true;
-        if($pesanan->update()){
-            return true;
+        $makeMin = Menu::updateMin($pesanan->id_menu,$pesanan->jumlah_pesanan);
+        // dd($makeMin);
+        if($makeMin == true){
+            if($pesanan->update()) return true;
         }return false;
     }
 
