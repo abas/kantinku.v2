@@ -88,8 +88,8 @@
                               name="metode_pemesanan" 
                               class="form-control">
                               <option value="">...</option>
-                              <option onkeyup="showAlamatForm()" value="Antar">Antar</option>
-                              <option onkeyup="showAlamatForm()" value="Ambil">Ambil</option>
+                              <option onkeyup="showAlamatForm()" onclick="showAlamatForm()" value="Antar">Antar</option>
+                              <option onkeyup="showAlamatForm()" onclick="showAlamatForm()" value="Ambil">Ambil</option>
                             </select>
                             @if($errors->has('metode_pemesanan'))
                               <div class="help-block text-right">{{$errors->first('metode_pemesanan')}}</div>

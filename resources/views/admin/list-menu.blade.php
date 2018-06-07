@@ -43,7 +43,7 @@
                       <a class="btn btn-xs btn-default" href="{{route('admin-editmenu',$menu->id)}}">
                         <i class="fa fa-pencil"></i>
                       </a>
-                      <a class="btn btn-xs btn-default" href="{{route('admin-deletemenu',$menu->id)}}">
+                      <a class="btn btn-xs btn-default" onclick="deleteMenu('{{route('admin-deletemenu',$menu->id)}}')">
                         <i class="fa fa-times"></i>
                       </a>
 

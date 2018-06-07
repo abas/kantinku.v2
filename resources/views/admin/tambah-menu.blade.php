@@ -36,18 +36,17 @@
           <!-- Step Tabs -->
           <ul class="nav nav-tabs nav-justified">
             <li class="active">
-              <a href="#simple-classic-step1-makanan" data-toggle="tab">Makanan</a>
-            </li>
-            <li>
               <a href="#simple-classic-step2-makanan" data-toggle="tab">Details</a>
+            </li>
+            <li >
+              <a href="#simple-classic-step1-makanan" data-toggle="tab">Makanan</a>
             </li>
           </ul>
           <!-- END Step Tabs -->
 
           <!-- Form -->
           <form class="js-validation-bootstrap form-horizontal" action="{{route('postAddmenu')}}" method="post" enctype="multipart/form-data">
-            @csrf 
-            @if(session('sukses-makanan'))
+            @csrf @if(session('sukses-makanan'))
             <div class="alert alert-success">
               {{session('sukses-makanan')}}
             </div>
@@ -59,34 +58,7 @@
             <!-- Steps Content -->
             <div class="block-content tab-content">
               <!-- Step 1 -->
-              <div class="tab-pane push-30-t push-50 active" id="simple-classic-step1-makanan">
-                <div class="form-group">
-                  <div class="col-sm-10 col-sm-offset-1">
-                    <label for="simple-classic-city">Harga Makanan</label>
-                    <input class="form-control" type="number" id="simple-classic-city" name="harga_menu" min="100" max="1000000" placeholder="Harga Makanan ?">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="col-sm-10 col-sm-offset-1">
-                    <label for="val-digits">Stok Makanan
-                      <span class="text-danger">*</span>
-                    </label>
-                    <input class="form-control" type="number" id="val-digits" name="stock_menu" placeholder="3">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="col-sm-10 col-sm-offset-1">
-                    <label class="val-digits" for="foto-makanan">Foto Makanan</label>
-                    <div class="col-xs-12">
-                      <input type="file" id="foto-makanan" name="image_menu">
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- END Step 1 -->
-
-              <!-- Step 2 -->
-              <div class="tab-pane push-30-t push-50" id="simple-classic-step2-makanan">
+              <div class="tab-pane push-30-t push-50 active" id="simple-classic-step2-makanan">
                 <div class="form-group">
                   <div class="col-sm-10 col-sm-offset-1">
                     <label for="val-digits">Nama Menu
@@ -99,6 +71,33 @@
                   <div class="col-sm-10 col-sm-offset-1">
                     <label for="simple-classic-details">Details</label>
                     <textarea class="form-control" id="simple-classic-details" name="deskripsi_menu" rows="9" placeholder="Deskripsi menu"></textarea>
+                  </div>
+                </div>
+              </div>
+              <!-- END Step 1 -->
+
+              <!-- Step 2 -->
+              <div class="tab-pane push-30-t push-50" id="simple-classic-step1-makanan">
+                <div class="form-group">
+                  <div class="col-sm-10 col-sm-offset-1">
+                    <label for="simple-classic-city">Harga Makanan</label>
+                    <input class="form-control" type="number" id="simple-classic-city" name="harga_menu" min="100" max="1000000" placeholder="Harga Makanan ?">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-10 col-sm-offset-1">
+                    <label for="val-digits">Stok Makanan
+                      <span class="text-danger">*</span>
+                    </label>
+                    <input class="form-control" type="number" id="val-digits" name="stock_menu" placeholder="ex : 9">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-10 col-sm-offset-1">
+                    <label class="val-digits" for="foto-makanan">Foto Makanan</label>
+                    <div class="col-xs-12">
+                      <input type="file" id="foto-makanan" name="image_menu">
+                    </div>
                   </div>
                 </div>
               </div>
@@ -129,18 +128,17 @@
           <!-- Step Tabs -->
           <ul class="nav nav-tabs nav-justified">
             <li class="active">
-              <a href="#simple-classic-step1-minuman" data-toggle="tab">Minuman</a>
+              <a href="#simple-classic-step1-minuman" data-toggle="tab">Details</a>
             </li>
             <li>
-              <a href="#simple-classic-step2-minuman" data-toggle="tab">Details</a>
+              <a href="#simple-classic-step2-minuman" data-toggle="tab">Minuman</a>
             </li>
           </ul>
           <!-- END Step Tabs -->
 
           <!-- Form -->
           <form class="js-validation-bootstrap form-horizontal" action="{{route('postAddmenu')}}" method="post" enctype="multipart/form-data">
-            @csrf
-            @if(session('sukses-minuman'))
+            @csrf @if(session('sukses-minuman'))
             <div class="alert alert-success">
               {{session('sukses-minuman')}}
             </div>
@@ -155,33 +153,6 @@
               <div class="tab-pane push-30-t push-50 active" id="simple-classic-step1-minuman">
                 <div class="form-group">
                   <div class="col-sm-10 col-sm-offset-1">
-                    <label for="simple-classic-city">Harga Minuman</label>
-                    <input class="form-control" type="number" id="simple-classic-city" name="harga_menu" min="100" max="1000000" placeholder="Harga Minuman ?">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="col-sm-10 col-sm-offset-1">
-                    <label for="val-digits">Stok Minuman
-                      <span class="text-danger">*</span>
-                    </label>
-                    <input class="form-control" type="number" id="val-digits" name="stock_menu" placeholder="3">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="col-sm-10 col-sm-offset-1">
-                    <label class="val-digits" for="foto-Minuman">Foto Minuman</label>
-                    <div class="col-xs-12">
-                      <input type="file" id="foto-Minuman" name="image_menu">
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- END Step 1 -->
-
-              <!-- Step 2 -->
-              <div class="tab-pane push-30-t push-50" id="simple-classic-step2-minuman">
-                <div class="form-group">
-                  <div class="col-sm-10 col-sm-offset-1">
                     <label for="val-digits">Nama Menu
                       <span class="text-danger">*</span>
                     </label>
@@ -192,6 +163,33 @@
                   <div class="col-sm-10 col-sm-offset-1">
                     <label for="simple-classic-details">Details</label>
                     <textarea class="form-control" id="simple-classic-details" name="deskripsi_menu" rows="9" placeholder="Deskripsi menu"></textarea>
+                  </div>
+                </div>
+              </div>
+              <!-- END Step 1 -->
+
+              <!-- Step 2 -->
+              <div class="tab-pane push-30-t push-50" id="simple-classic-step2-minuman">
+                <div class="form-group">
+                  <div class="col-sm-10 col-sm-offset-1">
+                    <label for="simple-classic-city">Harga Minuman</label>
+                    <input class="form-control" type="number" id="simple-classic-city" name="harga_menu" min="100" max="1000000" placeholder="Harga Minuman ?">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-10 col-sm-offset-1">
+                    <label for="val-digits">Stok Minuman
+                      <span class="text-danger">*</span>
+                    </label>
+                    <input class="form-control" type="number" id="val-digits" name="stock_menu" placeholder="ex : 9">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-10 col-sm-offset-1">
+                    <label class="val-digits" for="foto-Minuman">Foto Minuman</label>
+                    <div class="col-xs-12">
+                      <input type="file" id="foto-Minuman" name="image_menu">
+                    </div>
                   </div>
                 </div>
               </div>

@@ -16,8 +16,11 @@
                 <b>Rp {{$makanan->harga_menu}}</b>
               </div>
             </div>
-            <img class="img-responsive" src="{{asset('assets/img/food/aneka-gorengan.jpg')}}" alt="">
-
+            @if($makanan->image_menu == null)
+              <img class="img-responsive" src="{{asset('assets/img/food/aneka-gorengan.jpg')}}" alt="">
+            @else
+              <img class="img-responsive" src="{{asset('uploads/images/menu/').'/'.$makanan->image_menu}}" alt="">
+            @endif
             <div class="block-content block-content-full text-left">
               <h4 class="">{{$makanan->nama_menu}}</h4>
               <p>
