@@ -19,7 +19,7 @@ class CreateRekeningsTable extends Migration
             $table->string('atasnama')->nullable();
             $table->string('no_rekening')->nullable();
             $table->enum('jenis_rekening',[
-                'BNI','BRI','MANDIRI','BPD'
+                'BNI','BRI','MANDIRI','BPD','NULL'
             ])->nullable();
             $table->timestamps();
         });

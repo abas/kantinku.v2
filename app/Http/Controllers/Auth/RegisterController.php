@@ -76,7 +76,7 @@ class RegisterController extends Controller
             $rekening->id_user = User::where('email',$user->email)->get()->first()->id;
             $rekening->atasnama = 'null';
             $rekening->no_rekening = 'null';
-            $rekening->jenis_rekening = 'null';
+            $rekening->jenis_rekening = 'NULL';
             if($rekening->save()){
                 return $user;
                 }else{
