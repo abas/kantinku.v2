@@ -160,13 +160,9 @@
             <div class="block-content block-content-mini block-content-full border-t">
               <div class="row">
                 <div class="col-xs-6">
-                  <button class="wizard-prev btn btn-default" type="button">
-                    <i class="fa fa-arrow-left"></i> Previous</button>
                 </div>
                 <div class="col-xs-6 text-right">
-                  <button class="wizard-next btn btn-default" type="button">Next
-                    <i class="fa fa-arrow-right"></i>
-                  </button>
+
                   <a class="wizard-finish btn btn-primary" href="{{route('admin-makeselesai-pesanan',$pesanan->id)}}
                   ">
                     @if($pesanan->is_selesai == false)
