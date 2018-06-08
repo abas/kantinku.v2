@@ -59,9 +59,10 @@
       </button>
     </li>
     <li class="js-header-search header-search">
-      <form class="form-horizontal" action="#" method="post">
+      <form class="form-horizontal" action="{{route('test-post-search')}}" method="post">
+        @csrf
         <div class="form-material form-material-primary input-group remove-margin-t remove-margin-b">
-          <input class="form-control" type="text" id="base-material-text" name="base-material-text" placeholder="Search..">
+          <input class="form-control" type="text" id="base-material-text" name="keyword" placeholder="Search..">
           <span class="input-group-addon">
             <i class="si si-magnifier"></i>
           </span>

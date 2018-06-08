@@ -42,6 +42,11 @@ class Menu extends Model
         return Menu::find($id)->id_user;
     }
 
+    public static function getImage($id)
+    {
+        return Menu::find($id)->image_menu;
+    }
+
     public static function MakanansNotHabis()
     {
         return Menu::where([

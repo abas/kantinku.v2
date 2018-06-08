@@ -136,6 +136,10 @@ class MenuController extends Controller
         $menu->deskripsi_menu   = $r->deskripsi_menu;
         $menu->harga_menu       = $r->harga_menu;
         $menu->stock_menu       = $r->stock_menu;
+        
+        if($menu->stock_menu>0){
+            Menu::makeAvail($menu->id);
+        }
 
         if($menu->update()){
             Session::flash('update-sukses',true);

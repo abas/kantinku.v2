@@ -69,10 +69,12 @@ Route::group(['prefix'=>'test'],function(){
     Route::group(['prefix'=>'get'],function(){
         getUrl('/uploadimage','MenuController@getUploadImage','test-get-uploadimage');
         getUrl('/deletemenu{id}','MenuController@delete','tes-get-deletemenu');
-   });
-
-   Route::group(['prefix'=>'post'],function(){
-    postUrl('/uploadimage','MenuController@postUploadImage','test-post-uploadimage');
-   });
+        getUrl('/searchres','SearchController@searchResult','test-get-search');
+    });
+    
+    Route::group(['prefix'=>'post'],function(){
+        postUrl('/searchres','SearchController@search','test-post-search');
+        postUrl('/uploadimage','MenuController@postUploadImage','test-post-uploadimage');
+    });
 });
 

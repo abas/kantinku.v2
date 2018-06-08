@@ -76,7 +76,11 @@
                     <label for="">
                       <h3>{{$menu->getName($pesanan->id_menu)}}</h3>
                     </label>
-                    <img src="{{asset('assets/img/food/daging.jpg')}}" alt="" class="img-responsive" id="image_menu">
+                    <img src="{{
+                      $menu->getImage($pesanan->id_menu) == null ?
+                        asset('assets/img/food/daging.jpg') :
+                        asset('uploads/images/menu/').'/'.$menu->getImage($pesanan->id_menu)
+                      }}" alt="" class="img-responsive" id="image_menu">
                   </div>
                 </div>
               </div>
