@@ -1,4 +1,4 @@
-@extends('Container.app') @section('content')
+@extends('container.app') @section('content')
 <!-- Main Container -->
 <main id="main-container">
   <!-- Filter and Results -->
